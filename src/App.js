@@ -1,13 +1,12 @@
-import logo from './logo.svg';
-import './App.css';
-import Navbar from './componentes/navbar';
+import { Main }  from "./componentes/main/Main.jsx";
 
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+    <Main/>
     </div>
-  );
-}
-
-export default App;
+    );
+  }
+  
+  export default App;
+  

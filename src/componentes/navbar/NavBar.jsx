@@ -1,7 +1,8 @@
 import React from "react";
-import Logo from './navbar/obey.png'
+import Logo from '../assets/obey.png'
+import Carrito from '../assets/carrito.png'
 
-export default function Navbar(){
+const NavBar =()=>{
 
     let formato ={
         width:"100px",
@@ -10,13 +11,19 @@ export default function Navbar(){
 
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <img src={Logo} style={formato} alt="asdasd" />
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div className="w-25 d-flex justify-content-center">
+                    <img src={Logo} className="d-flex justify-content-center bg-warning" style={formato} alt="logo sitio" />
+                </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                <form className="form-inline my-2 my-lg-0 w-100 d-flex justify-content-end">
+                    <input className="form-control mr-sm-2 w-75" type="search" placeholder="Buscar..."/>
+                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul className="navbar-nav mr-auto w-100 d-flex justify-content-around mt-2 mt-lg-0">
                     <li className="nav-item active">
                         <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                     </li>
@@ -27,11 +34,12 @@ export default function Navbar(){
                         <a className="nav-link" href="#">Ofertas</a>
                     </li>
                 </ul>
-                <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Buscar..."/>
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <div className="carrito">
+                    <img src={Carrito} alt="carrito" />
+                </div>
             </div>
       </nav>
     )
 }
+
+export default NavBar
