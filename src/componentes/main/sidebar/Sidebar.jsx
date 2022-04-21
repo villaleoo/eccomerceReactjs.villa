@@ -1,6 +1,6 @@
 import React from 'react'
-import { SidebarPrimero } from '../sidebar/SidebarPrimero'
-import { SidebarSegundo } from '../sidebar/SidebarSegundo'
+import { SidebarPrimero } from './SideCards/SidebarPrimero'
+import { SidebarSegundo } from './SideCards/SidebarSegundo'
 
 export const Sidebar = () => {
   return (

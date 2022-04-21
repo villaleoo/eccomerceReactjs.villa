@@ -1,20 +1,14 @@
 import React from "react";
-import Logo from '../assets/obey.png'
-import Carrito from '../assets/carrito.png'
+import { CardWidget } from './CardWidget/CardWidget';
+import { LogoSite } from "./LogoSite/LogoSite";
 
 const NavBar =()=>{
 
-    let formato ={
-        width:"100px",
-        height:"100px"
-    }
-
+    
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="w-25 d-flex justify-content-center">
-                    <img src={Logo} className="d-flex justify-content-center bg-warning" style={formato} alt="logo sitio" />
-                </div>
+                <LogoSite/>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -34,9 +28,7 @@ const NavBar =()=>{
                         <a className="nav-link" href="#">Ofertas</a>
                     </li>
                 </ul>
-                <div className="carrito">
-                    <img src={Carrito} alt="carrito" />
-                </div>
+                <CardWidget/>
             </div>
       </nav>
     )

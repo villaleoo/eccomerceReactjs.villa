@@ -2,7 +2,7 @@ import React from 'react'
 
 export const SidebarPrimero = ({tipoProducto1, tipoProducto2,tipoProducto3,tipoProducto4,unidades1,unidades2,unidades3,unidades4}) => {
     return (
-        <aside>
+        <>
             <div className="card w-100">
                 <article className="card-group-item">
                     <header className="card-header"><h6 className="title">Tipo de producto </h6></header>
@@ -35,7 +35,7 @@ export const SidebarPrimero = ({tipoProducto1, tipoProducto2,tipoProducto3,tipoP
                     </div>
                 </article> 
             </div> 
-        </aside>
+        </>
     )
 }
     

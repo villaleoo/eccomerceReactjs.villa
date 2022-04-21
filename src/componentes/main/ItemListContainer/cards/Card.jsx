@@ -1,5 +1,5 @@
 import React from 'react'
-import imgDefault from '../assets/imgDefault.jpg'
+import imgDefault from '../../../assets/imgDefault.jpg'
 
 export const Card = ({imagen,nombre,precio}) => {
 
@@ -14,8 +14,8 @@ export const Card = ({imagen,nombre,precio}) => {
 
   return (
 
-    <div>
-        <div className="card d-flex" style={estilos}>
+    <>
+        <div className="card" style={estilos}>
             <img src={imagen || imgDefault} className="card-img-top" style={estiloImg} alt="..."/>
             <div className="card-body">
               <h5 className="card-title">{nombre}</h5>
@@ -23,6 +23,6 @@ export const Card = ({imagen,nombre,precio}) => {
               <a href="#" className="btn btn-success">Comprar</a>
             </div>
         </div>
-    </div>
+    </>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const SidebarSegundo = ({marca1,marca2,marca3,marca4,unidades1,unidades2,unidades3,unidades4}) => {
   return (
-    <aside>
+    <>
         <div className="card w-100">
             <article className="card-group-item">
                 <header className="card-header">
@@ -53,6 +53,6 @@ export const SidebarSegundo = ({marca1,marca2,marca3,marca4,unidades1,unidades2,
                 </div>
             </article> 
         </div> 
-    </aside>
+    </>
   )
 }
