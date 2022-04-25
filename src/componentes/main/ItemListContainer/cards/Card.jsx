@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Children } from 'react'
 import imgDefault from '../../../assets/imgDefault.jpg'
 
-export const Card = ({imagen,nombre,precio}) => {
+
+
+
+export const Card = ({imagen,nombre,precio,btnContador}) => {
 
     let estilos={
-        width:'300px',
-        height:'350px',
+        width:'350px',
+        height:'400px',
     }
     let estiloImg={
         width:'200px',
@@ -20,6 +23,7 @@ export const Card = ({imagen,nombre,precio}) => {
             <div className="card-body">
               <h5 className="card-title">{nombre}</h5>
               <p className="card-text">{precio}</p>
+              {btnContador}
               <a href="#" className="btn btn-success">Comprar</a>
             </div>
         </div>

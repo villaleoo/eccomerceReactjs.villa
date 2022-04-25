@@ -8,9 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <Main 
-        greeting={"Bienvenido a mi e-commerce"}
-        />
+      <Main/>
       <Footer/>
     </div>
   );

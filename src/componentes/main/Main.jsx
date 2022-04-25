@@ -2,14 +2,16 @@ import React from 'react'
 import { Sidebar } from './sidebar/Sidebar'
 import { ItemListContainer } from './ItemListContainer/ItemListContainer'
 
-export const Main = ({greeting}) => {
+
+export const Main = () => {
 
   return (
     <>
-        <h4 className='text-center'>{greeting}</h4>
         <div className="padreContenido d-flex">
         <Sidebar/>
-        <ItemListContainer/>
+        <ItemListContainer
+           greeting={"Bienvenido a mi e-commerce"}
+        />
         </div>
     </>
   )
