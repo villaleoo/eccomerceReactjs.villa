@@ -9,9 +9,7 @@ export const Main = () => {
     <>
         <div className="padreContenido d-flex">
         <Sidebar/>
-        <ItemListContainer
-           greeting={"Bienvenido a mi e-commerce"}
-        />
+        <ItemListContainer/>
         </div>
     </>
   )

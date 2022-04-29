@@ -1,76 +1,35 @@
-import React from 'react'
-import { Card } from './cards/Card'
-import { ItemCount } from './cards/itemCount/ItemCount'
+import React, { useEffect, useState } from 'react'
+import { ItemList } from './ItemList/ItemList'
 
 
-export const ItemListContainer = ({greeting}) => {
-  return (
-      <div className='d-flex flex-column'>
-      <h4 className='text-center'>{greeting}</h4>
-      <div className='d-flex w-100 h-100 bg-warning justify-content-around flex-wrap align-items-center'>
-        <Card
-            imagen={'https://http2.mlstatic.com/D_NQ_NP_976200-MLA48068020264_102021-W.jpg'}
-            nombre={'Air Vapor 7'}
-            precio={'$10700'}
-            btnContador={
-                <ItemCount
-                initial={1}
-                stock={8}
-                />
-            }
-        />
+
+export const ItemListContainer = () => {
+
+    const [producto, setProducto] = useState([])
+
+    const productos = [
+        {nombre:'Airmax evo 3', marca:'nike', precio:10800, genero: 'unisex',stock:10,img:'https://www.moov.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw4773435f/products/NI_CD6864-110/NI_CD6864-110-1.JPG'},
+        {nombre:'Grand Court Base',marca:'adidas', precio:13000,genero:'unisex',stock:8,img:'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw31fa82c5/products/AD_EF0103/AD_EF0103-1.JPG'},
+        {nombre:'Vans old skol', marca:'vans', precio:14000,genero:'unisex',stock:5,img:'https://www.moov.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dwff03ddbe/products/VA_VN000D3HNVY/VA_VN000D3HNVY-1.JPG'},
+        {nombre:'X-ray Lite', marca:'puma',precio:13000,genero:'unisex',stock:7,img:'https://www.stockcenter.com.ar/on/demandware.static/-/Sites-dabra-catalog/default/dw42fbda1c/products/PU_374122-10/PU_374122-10-1.JPG'}
+    ]
+
     
-        <Card
-            nombre={'eseentials adidas'}      
-            precio={'$10700'}
-            btnContador={
-                <ItemCount
-                initial={1}
-                stock={16}
-                />
-            }
-        />
-        <Card
-            nombre={'nike tanju'}
-            precio={'$10700'}
-            btnContador={
-                <ItemCount
-                initial={1}
-                stock={10}
-                />
-            }
-        />
-       <Card
-            nombre={'puma pride'}
-            precio={'$10700'}
-            btnContador={
-                <ItemCount
-                initial={1}
-                stock={2}
-                />
-            }
-            />
-        <Card
-            nombre={'airmax'}
-            precio={'$10700'}
-            btnContador={
-                <ItemCount
-                initial={1}
-                stock={4}
-                />
-            }
-            />
-        <Card
-            nombre={'camperon adidas'}
-            precio={'$10700'}
-            btnContador={
-                <ItemCount
-                initial={1}
-                stock={6}
-                />
-            }
-            />
-    </div>
-  </div>
+    
+    useEffect(()=>{
+        const obtenerProductos = new Promise ((resolve,reject)=>{
+            setTimeout(() => {
+               resolve(productos) 
+            }, 2000);
+        })
+        obtenerProductos.then ((res)=>{setProducto(res)})
+        .catch((err)=> console.log(err))
+    },[])
+    console.log(producto)
+
+  return (
+        <div className='d-flex w-100'>
+            <ItemList producto={producto}/>
+        </div>
   )
 }
