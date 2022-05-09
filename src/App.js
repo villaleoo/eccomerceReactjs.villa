@@ -1,16 +1,11 @@
-import { Header } from "./componentes/header/Header";
-import {Footer} from "./componentes/footer/Footer"
-import { Main } from "./componentes/main/Main"
-import axios from "axios";
+import { Rutas } from "./routes/Rutas";
 
 
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Main/>
-      <Footer/>
+    <div className="App ">
+      <Rutas/>
     </div>
   );
 }

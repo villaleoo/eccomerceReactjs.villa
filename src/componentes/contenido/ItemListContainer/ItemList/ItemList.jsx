@@ -5,7 +5,7 @@ import spinner from './itemList.css'
 export const ItemList = ({producto}) => {
 
   return (
-    <div className='bg-warning w-100 d-flex flex-wrap justify-content-around'>
+    <div className='bg-warning w-75 d-flex flex-wrap justify-content-around'>
         {producto.length > 0 ? (
             producto.map((item, index)=>(
                 <div key={index} className='p-3'>

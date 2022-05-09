@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ItemList } from './ItemList/ItemList'
-
+import { Sidebar } from './sidebar/Sidebar'
 
 
 export const ItemListContainer = () => {
@@ -29,6 +29,7 @@ export const ItemListContainer = () => {
 
   return (
         <div className='d-flex w-100'>
+            <Sidebar/>
             <ItemList producto={producto}/>
         </div>
   )

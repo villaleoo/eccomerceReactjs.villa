@@ -4,7 +4,7 @@ import { SidebarSegundo } from './SideCards/SidebarSegundo'
 
 export const Sidebar = () => {
   return (
-    <aside className='w-20'>
+    <aside className='w-25'>
         <SidebarPrimero
                 tipoProducto1={'Zapatillas'}
                 unidades1={20}

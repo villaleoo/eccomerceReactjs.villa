@@ -1,5 +1,5 @@
 import React from 'react'
-import spinner from '../../ItemListContainer/ItemList/itemList.css'
+import spinner from '../../../contenido/ItemListContainer/ItemList/itemList.css'
 import estilos from './itemDetail.scss'
 const ItemDetail = ({item}) => {
 
