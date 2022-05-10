@@ -1,11 +1,11 @@
 import React from 'react'
-import './error.css'
+import './itemError.css'
 
-
-export const Error = () => {
+export const ItemError = () => {
+  
   return (
-    <>
-        <div className="container">
+    <div className="d-flex w-100">
+        <div className="container w-100">
             <h1 className="first-four">4</h1>
             <div className="cog-wheel1">
                 <div className="cog1">
@@ -35,7 +35,6 @@ export const Error = () => {
             <h1 className="second-four">4</h1>
             <p className="wrong-para">Uh Oh! Page not found!</p>
         </div>
-
-    </>
+    </div>
   )
 }

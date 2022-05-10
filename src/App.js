@@ -4,7 +4,7 @@ import { Rutas } from "./routes/Rutas";
 
 function App() {
   return (
-    <div className="App ">
+    <div className="App">
       <Rutas/>
     </div>
   );

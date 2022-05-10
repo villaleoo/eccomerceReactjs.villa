@@ -1,6 +1,7 @@
 import React from "react";
 import { CardWidget } from './CardWidget/CardWidget';
 import { LogoSite } from "./LogoSite/LogoSite";
+import {NavLink} from 'react-router-dom'
 
 const NavBar =()=>{
 
@@ -19,7 +20,7 @@ const NavBar =()=>{
                 </form>
                 <ul className="navbar-nav mr-auto w-100 d-flex justify-content-around mt-2 mt-lg-0">
                     <li className="nav-item active">
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+                        <NavLink className="nav-link" to='/'>Home <span className="sr-only">(current)</span></NavLink>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#">Productos</a>

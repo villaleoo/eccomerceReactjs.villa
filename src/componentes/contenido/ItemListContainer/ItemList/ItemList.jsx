@@ -1,9 +1,10 @@
 import React from 'react'
 import { Item } from './Items/Item'
-import spinner from './itemList.css'
+import  './itemList.css'
+
 
 export const ItemList = ({producto}) => {
-
+    
   return (
     <div className='bg-warning w-75 d-flex flex-wrap justify-content-around'>
         {producto.length > 0 ? (
@@ -13,6 +14,7 @@ export const ItemList = ({producto}) => {
                     imagen={item.img}
                     nombre={item.nombre}
                     precio={item.precio}
+                    id={item.id}
                     />
                 </div>
             ))
@@ -22,7 +24,8 @@ export const ItemList = ({producto}) => {
             <div className='d-flex justify-content-center align-items-center w-100 p-3'>
                 <div className="lds-hourglass"></div>
             </div>
-        )}
+        )
+        }
     </div>
   )
 }

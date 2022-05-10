@@ -4,6 +4,7 @@ import { Footer } from '../footer/Footer'
 import NavBar from '../header/navbar/NavBar'
 
 
+
 const Layout = () => {
   return (
     <>

@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
+
 import ItemDetailContainer from "../componentes/contenido/ItemDetailContainer/ItemDetailContainer"
+import { ItemError } from "../componentes/contenido/ItemListContainer/itemError/ItemError"
 import { ItemListContainer } from "../componentes/contenido/ItemListContainer/ItemListContainer"
-import { Error } from "../componentes/contenido/ItemListContainer/notFound/Error.jsx"
+
 
 import Layout from "../componentes/contenido/Layout"
 
@@ -15,7 +17,7 @@ export const Rutas = () => {
                     <Route index element={<ItemListContainer/>}/>
                     <Route path="/category/:id" element={<ItemListContainer/>}/>
                     <Route path="/item/:id" element={<ItemDetailContainer/>}/>
-                    <Route path="*" element={<Error/>}/>
+                    <Route path="*" element={<ItemError/>}/>
                 </Route>
             </Routes>
         </BrowserRouter>
