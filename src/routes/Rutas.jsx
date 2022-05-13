@@ -7,6 +7,7 @@ import { ItemListContainer } from "../componentes/contenido/ItemListContainer/It
 
 
 import Layout from "../componentes/contenido/Layout"
+import { CardWidget } from "../componentes/header/navbar/CardWidget/CardWidget"
 
 export const Rutas = () => {
   return (
@@ -17,6 +18,7 @@ export const Rutas = () => {
                     <Route index element={<ItemListContainer/>}/>
                     <Route path="/category/:id" element={<ItemListContainer/>}/>
                     <Route path="/item/:id" element={<ItemDetailContainer/>}/>
+                    <Route path="/cart" element={<CardWidget/>}/>
                     <Route path="*" element={<ItemError/>}/>
                 </Route>
             </Routes>

@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { ItemCount } from './itemCount/ItemCount'
 import estilos from './itemDetail.scss'
+import { Link } from 'react-router-dom'
+
 
 
 const ItemDetail = ({item}) => {
 	
+	const [carrito, setCarrito] = useState(1)
+
     let alto={
         height:'700px'
     }
@@ -11,6 +16,16 @@ const ItemDetail = ({item}) => {
         fontSize:'small'
     }
 
+
+	
+
+
+	function onAdd (){
+		alert(`se añadieron ${carrito} unidades de su producto ${item.nombre} al carrito`)
+	
+	}
+
+	
   return (
     <div className='d-flex w-100'>   
         <div style={alto} className='d-flex w-100 justify-content-center '>
@@ -60,7 +75,12 @@ const ItemDetail = ({item}) => {
                             <li className='text-uppercase'><span className='font-weight-bold'>Stock:</span> {item.stock} unidades.</li>
                         </ul>
 	            	</div>
-	            	<button className="buy--btn">AÑADIR AL CARRITO</button>
+					<ItemCount
+					setCarrito={setCarrito}
+					carrito={carrito}
+					stock={item.stock}
+					/>
+	            	<Link to="/cart" onClick={onAdd} className="buy--btn">AÑADIR AL CARRITO</Link>
 	            </div>
             </section>
         </div>
