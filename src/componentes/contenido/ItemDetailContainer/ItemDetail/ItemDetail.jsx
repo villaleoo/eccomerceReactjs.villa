@@ -7,8 +7,7 @@ import { Link } from 'react-router-dom'
 
 const ItemDetail = ({item}) => {
 	
-	const [carrito, setCarrito] = useState(1)
-
+	
     let alto={
         height:'700px'
     }
@@ -20,9 +19,11 @@ const ItemDetail = ({item}) => {
 	
 
 
-	function onAdd (){
-		alert(`se añadieron ${carrito} unidades de su producto ${item.nombre} al carrito`)
-	
+	function onAdd (unidades){
+		console.log(unidades);
+		if((unidades.cantidad) == item.stock ){
+			console.log('no hay mas unidades!');
+		}
 	}
 
 	
@@ -76,11 +77,9 @@ const ItemDetail = ({item}) => {
                         </ul>
 	            	</div>
 					<ItemCount
-					setCarrito={setCarrito}
-					carrito={carrito}
+					onAdd = {onAdd}
 					stock={item.stock}
 					/>
-	            	<Link to="/cart" onClick={onAdd} className="buy--btn">AÑADIR AL CARRITO</Link>
 	            </div>
             </section>
         </div>
