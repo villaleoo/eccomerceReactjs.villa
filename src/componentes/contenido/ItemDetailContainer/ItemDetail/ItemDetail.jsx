@@ -27,6 +27,18 @@ const ItemDetail = ({item}) => {
 	
 	function onAdd (quantityToCart){
 		console.log(quantityToCart);
+
+		const counterAdd = document.getElementById("sumar")
+		const stockLimited= document.getElementById("noStock")
+
+		if(quantityToCart == item.stock){
+			stockLimited.innerHTML=`No hay mas unidades en stock!`
+			counterAdd.className='d-none'
+		}else{
+			stockLimited.innerHTML=''
+			counterAdd.className='d-inline'
+		}
+			
 	}
 
 	

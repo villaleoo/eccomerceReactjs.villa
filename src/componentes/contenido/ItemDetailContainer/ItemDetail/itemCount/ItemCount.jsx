@@ -26,10 +26,13 @@ export const ItemCount = ({onAdd, stock}) => {
     
    
   return (
-    <div className='d-flex py-5 px-4'>
+    <div className='d-flex flex-column justify-content-between  w-100 ' id="itemCount">
+        <div className='d-flex'>
         <button onClick={restar}>-</button>
         <h5  className='mx-2'>Unidades: {quantity}</h5>
-        <button onClick={sumar}>+</button> 
+        <button onClick={sumar} id="sumar">+</button>
+        </div>
+        <p className="py-2"id="noStock"></p> 
     </div>
   )
 }
