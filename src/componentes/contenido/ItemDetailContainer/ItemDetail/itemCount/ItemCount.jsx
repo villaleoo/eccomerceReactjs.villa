@@ -1,30 +1,35 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
+// import GlobalStateContext from '../../../../../context/GlobalStateContext'
 
 
 export const ItemCount = ({onAdd, stock}) => {
-    const [cantidad, setCantidad] = useState(1)
-
+    const [quantity, setQuantity] = useState(1)
+    
+    // const {}= useContext(GlobalStateContext)
 
     const restar=()=>{
-        if(cantidad > 1){
-            setCantidad(cantidad-1)
+        if(quantity > 1){
+            setQuantity(quantity-1)
         }
     }                                  //en el futuro no voy a sumar numeros sino objetos a añadir a un array de carrito
 
     const sumar=()=>{
-        if(stock != cantidad){               
-            setCantidad(cantidad+1)
+        if(stock != quantity){               
+            setQuantity(quantity+1)
+            
         }
     }
-
+    
+    onAdd(quantity);
+    
+    
    
   return (
     <div className='d-flex py-5 px-4'>
         <button onClick={restar}>-</button>
-        <h5  className='mx-2'>Unidades: {cantidad}</h5>
-        <button id="sumar" onClick={sumar}>+</button>
-        <Link to="/cart" onClick={onAdd({cantidad})} className="buy--btn">AÑADIR AL CARRITO</Link>
+        <h5  className='mx-2'>Unidades: {quantity}</h5>
+        <button onClick={sumar}>+</button> 
     </div>
   )
 }

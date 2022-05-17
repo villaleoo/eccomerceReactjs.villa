@@ -5,7 +5,6 @@ import ItemDetailContainer from "../componentes/contenido/ItemDetailContainer/It
 import { ItemError } from "../componentes/contenido/ItemListContainer/itemError/ItemError"
 import { ItemListContainer } from "../componentes/contenido/ItemListContainer/ItemListContainer"
 
-
 import Layout from "../componentes/contenido/Layout"
 import { CardWidget } from "../componentes/header/navbar/CardWidget/CardWidget"
 

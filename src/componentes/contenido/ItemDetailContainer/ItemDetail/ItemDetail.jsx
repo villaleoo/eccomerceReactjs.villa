@@ -1,12 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ItemCount } from './itemCount/ItemCount'
-import estilos from './itemDetail.scss'
+import './itemDetail.scss'
 import { Link } from 'react-router-dom'
+import { GlobalContext } from '../../../../context/GlobalStateContext'
+import { Item } from '../../ItemListContainer/ItemList/Items/Item'
+
 
 
 
 const ItemDetail = ({item}) => {
 	
+	const {cart, addToCart} = useContext(GlobalContext)
+
+	const {quantityToCart, setQuantityToCart}=useState(1)
 	
     let alto={
         height:'700px'
@@ -15,15 +21,12 @@ const ItemDetail = ({item}) => {
         fontSize:'small'
     }
 
-
 	
 
 
-	function onAdd (unidades){
-		console.log(unidades);
-		if((unidades.cantidad) == item.stock ){
-			console.log('no hay mas unidades!');
-		}
+	
+	function onAdd (quantityToCart){
+		console.log(quantityToCart);
 	}
 
 	
@@ -77,9 +80,10 @@ const ItemDetail = ({item}) => {
                         </ul>
 	            	</div>
 					<ItemCount
-					onAdd = {onAdd}
+					onAdd={onAdd}
 					stock={item.stock}
 					/>
+					<button onClick={addToCart} className="buy--btn">AÑADIR AL CARRITO</button>
 	            </div>
             </section>
         </div>

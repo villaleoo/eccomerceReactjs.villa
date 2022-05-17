@@ -1,3 +1,4 @@
+import GlobalStateContext from "./context/GlobalStateContext";
 import { Rutas } from "./routes/Rutas";
 
 
@@ -5,7 +6,11 @@ import { Rutas } from "./routes/Rutas";
 function App() {
   return (
     <div className="App">
-      <Rutas/>
+      <GlobalStateContext>
+
+        <Rutas/>
+
+      </GlobalStateContext>
     </div>
   );
 }
