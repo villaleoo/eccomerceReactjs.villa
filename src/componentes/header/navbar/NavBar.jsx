@@ -2,6 +2,7 @@ import React from "react";
 import { CardWidget } from './CardWidget/CardWidget';
 import { LogoSite } from "./LogoSite/LogoSite";
 import {NavLink} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const NavBar =()=>{
 
@@ -29,7 +30,7 @@ const NavBar =()=>{
                         <a className="nav-link" href="#">Ofertas</a>
                     </li>
                 </ul>
-                <CardWidget/>
+                <Link to="/cart">Carrito</Link>
             </div>
       </nav>
     )

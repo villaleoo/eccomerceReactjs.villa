@@ -10,9 +10,9 @@ import { Item } from '../../ItemListContainer/ItemList/Items/Item'
 
 const ItemDetail = ({item}) => {
 	
-	const {cart, addToCart} = useContext(GlobalContext)
+	const {cart,addToCart, isInCart}= useContext(GlobalContext)
 
-	const {quantityToCart, setQuantityToCart}=useState(1)
+	// let [quantityToCart, setQuantityToCart]= useState([])
 	
     let alto={
         height:'700px'
@@ -23,24 +23,7 @@ const ItemDetail = ({item}) => {
 
 	
 
-
 	
-	function onAdd (quantityToCart){
-		console.log(quantityToCart);
-
-		const counterAdd = document.getElementById("sumar")
-		const stockLimited= document.getElementById("noStock")
-
-		if(quantityToCart == item.stock){
-			stockLimited.innerHTML=`No hay mas unidades en stock!`
-			counterAdd.className='d-none'
-		}else{
-			stockLimited.innerHTML=''
-			counterAdd.className='d-inline'
-		}
-			
-	}
-
 	
   return (
     <div className='d-flex w-100'>   
@@ -91,11 +74,20 @@ const ItemDetail = ({item}) => {
                             <li className='text-uppercase'><span className='font-weight-bold'>Stock:</span> {item.stock} unidades.</li>
                         </ul>
 	            	</div>
-					<ItemCount
-					onAdd={onAdd}
-					stock={item.stock}
-					/>
-					<button onClick={addToCart} className="buy--btn">AÑADIR AL CARRITO</button>
+					{
+						isInCart(item.id) ? (
+							<Link to='/cart' className='btn btn-success'>En tu carrito ✔</Link>)
+							:
+							(
+							<div className='w-100'>
+								<ItemCount
+								stock={item.stock}
+								item={item}
+								/>
+								<Link to='/cart' onClick={()=> addToCart(item)} className="buy--btn">AÑADIR AL CARRITO</Link>
+							</div>
+						)
+					}
 	            </div>
             </section>
         </div>
