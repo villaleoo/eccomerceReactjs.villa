@@ -4,7 +4,7 @@ import { ItemCount } from '../../../contenido/ItemDetailContainer/ItemDetail/ite
 import { Link } from 'react-router-dom';
 
 export const CardWidget = () => {
-  const {cart,removeItem,clear} = useContext(GlobalContext)
+  const {cart,removeItem,clear,totalPrice} = useContext(GlobalContext)
 
 
   
@@ -18,7 +18,7 @@ export const CardWidget = () => {
     width: '150px'
   }
 
-  let totalPrice = cart.reduce((acc,el)=> acc + (el.precio * el.cantidad),0)
+ 
 
 
   return (
@@ -40,7 +40,7 @@ export const CardWidget = () => {
             </li>))
             }
           </ul>
-              <h2>Total: $ {totalPrice}</h2>
+              <h2>Total: $ {totalPrice()}</h2>
               <div className='d-flex w-50 py-4 justify-content-between'>
                 <button onClick={clear} style={btnSizing} className='btn btn-dark width-min-content'>Vaciar carrito</button>
                 <Link to='/' className='btn btn-info'>Añadir mas productos</Link>

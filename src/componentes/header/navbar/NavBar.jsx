@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CardWidget } from './CardWidget/CardWidget';
 import { LogoSite } from "./LogoSite/LogoSite";
 import {NavLink} from 'react-router-dom'
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../../../context/GlobalStateContext";
 
 const NavBar =()=>{
-
+    const {cart,totalItems}= useContext(GlobalContext)
     
 
     return (
@@ -30,7 +31,12 @@ const NavBar =()=>{
                         <a className="nav-link" href="#">Ofertas</a>
                     </li>
                 </ul>
-                <Link to="/cart">Carrito</Link>
+                {cart.length >0 &&
+                    <div className="d-flex">
+                        <p className="px-2 text-warning ">({totalItems()})</p>
+                        <Link to="/cart">Carrito</Link>
+                    </div>
+                }
             </div>
       </nav>
     )

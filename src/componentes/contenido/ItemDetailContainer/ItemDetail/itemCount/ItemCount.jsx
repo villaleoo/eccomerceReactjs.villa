@@ -28,13 +28,6 @@ export const ItemCount = ({stock, item}) => {
    
     
    
-
-//     function onAdd (q){
-//         item.cantidad = q
-//    }
-//     onAdd(quantity);
-
-
     
     
     

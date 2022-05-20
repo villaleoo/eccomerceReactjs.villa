@@ -27,7 +27,12 @@ const GlobalStateContext = ({children}) => {
       setCart([])
     }
 
-    
+    function totalPrice(){
+     return cart.reduce((acc,el)=> acc + (el.precio * el.cantidad),0)
+    }
+    function totalItems(){
+      return cart.reduce((acc,el)=>acc + el.cantidad,0)
+    }
     
    
 
@@ -35,7 +40,7 @@ const GlobalStateContext = ({children}) => {
 
 
   return (
-    <GlobalContext.Provider value={{cart,addToCart, isInCart,removeItem, clear}}>
+    <GlobalContext.Provider value={{cart,addToCart, isInCart,removeItem, clear,totalPrice,totalItems}}>
         {children}
     </GlobalContext.Provider>
   )
