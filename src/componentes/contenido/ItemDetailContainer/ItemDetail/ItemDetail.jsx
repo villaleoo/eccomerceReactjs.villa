@@ -10,9 +10,9 @@ import { Item } from '../../ItemListContainer/ItemList/Items/Item'
 
 const ItemDetail = ({item}) => {
 	
-	const {cart,addToCart, isInCart}= useContext(GlobalContext)
+	const {isInCart}= useContext(GlobalContext)
 
-	// let [quantityToCart, setQuantityToCart]= useState([])
+	
 	
     let alto={
         height:'700px'
@@ -21,6 +21,8 @@ const ItemDetail = ({item}) => {
         fontSize:'small'
     }
 
+	
+	
 	
 
 	
@@ -76,15 +78,19 @@ const ItemDetail = ({item}) => {
 	            	</div>
 					{
 						isInCart(item.id) ? (
-							<Link to='/cart' className='btn btn-success'>En tu carrito ✔</Link>)
+							<div className='d-flex flex-column align-items-center'>
+								<p className=''>En tu carrito ✔</p>
+								<Link to='/cart' className='btn btn-success'>Terminar compra</Link>
+							</div>
+							)
 							:
 							(
 							<div className='w-100'>
 								<ItemCount
 								stock={item.stock}
 								item={item}
+								// onAdd={onAdd}
 								/>
-								<Link to='/cart' onClick={()=> addToCart(item)} className="buy--btn">AÑADIR AL CARRITO</Link>
 							</div>
 						)
 					}

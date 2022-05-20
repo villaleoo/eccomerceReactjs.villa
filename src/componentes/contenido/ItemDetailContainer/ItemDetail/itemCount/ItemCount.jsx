@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import GlobalStateContext from '../../../../../context/GlobalStateContext'
+import { GlobalContext } from '../../../../../context/GlobalStateContext'
+
 
 
 export const ItemCount = ({stock, item}) => {
     const [quantity, setQuantity] = useState(item.cantidad)
     
-    // const {}= useContext(GlobalStateContext)
+    const {addItem,addToCart,isInCart} =useContext(GlobalContext)
    
 
     const restar=()=>{
@@ -19,15 +20,19 @@ export const ItemCount = ({stock, item}) => {
     const sumar=()=>{
         if(stock != quantity){               
             setQuantity(quantity+1)
-            
         }
     }
+    console.log(quantity);
 
-    function onAdd (q){
-        item.cantidad = q
-   }
+    console.log(item);
+   
+    
+   
 
-    onAdd(quantity);
+//     function onAdd (q){
+//         item.cantidad = q
+//    }
+//     onAdd(quantity);
 
 
     
@@ -47,6 +52,10 @@ export const ItemCount = ({stock, item}) => {
             quantity == stock &&
             <p className=''>No hay mas stock disponible!</p>
         } */}
+        {
+            !isInCart(item.id) &&
+        <Link to='/cart' onClick={()=> addToCart({...item,cantidad:quantity })} className="buy--btn">AÑADIR AL CARRITO</Link>
+        }
     </div>
   )
 }

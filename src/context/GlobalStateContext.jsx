@@ -9,7 +9,7 @@ const GlobalStateContext = ({children}) => {
 
     
     function addToCart (product)  {
-      
+      console.log(product);
       setCart([...cart,product])
     }
 
@@ -26,6 +26,11 @@ const GlobalStateContext = ({children}) => {
     function clear(){
       setCart([])
     }
+
+    
+    
+   
+
    
 
 

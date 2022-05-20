@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../../../../context/GlobalStateContext'
 import { ItemCount } from '../../../contenido/ItemDetailContainer/ItemDetail/itemCount/ItemCount';
-
+import { Link } from 'react-router-dom';
 
 export const CardWidget = () => {
-  const {cart,addToCart,removeItem,clear} = useContext(GlobalContext)
+  const {cart,removeItem,clear} = useContext(GlobalContext)
 
-  console.log(cart);
+
   
   let imgSizing={
     heigth:'150px',
@@ -18,6 +18,7 @@ export const CardWidget = () => {
     width: '150px'
   }
 
+  let totalPrice = cart.reduce((acc,el)=> acc + (el.precio * el.cantidad),0)
 
 
   return (
@@ -27,7 +28,7 @@ export const CardWidget = () => {
           <div className='d-flex flex-column justify-content-center align-items-center w-100'>
           <ul className='px-0 w-100'>
             {cart.map((items,index)=>(
-            <li key={index} className='bg-danger d-flex align-items-center justify-content-around w-100'>
+            <li key={index} className='bg-danger my-2 d-flex align-items-center justify-content-around w-100'>
                 <img style={imgSizing} src={items.img} alt="" />
                 <h4>{items.nombre}</h4>
                 <h5>${items.precio}</h5>
@@ -39,12 +40,20 @@ export const CardWidget = () => {
             </li>))
             }
           </ul>
-            <button onClick={clear} style={btnSizing} className='btn btn-dark width-min-content'>Vaciar carrito</button>
+              <h2>Total: $ {totalPrice}</h2>
+              <div className='d-flex w-50 py-4 justify-content-between'>
+                <button onClick={clear} style={btnSizing} className='btn btn-dark width-min-content'>Vaciar carrito</button>
+                <Link to='/' className='btn btn-info'>Añadir mas productos</Link>
+                <button className='btn btn-success'>Comprar</button>
+              </div>
           </div>
         )
         :
         (
-          <h2 className='text-center'>Carrito vacio, añada productos!</h2>
+          <div className='vh-50 d-flex flex-column justify-content-center align-items-center'>
+            <h2 className='text-center'>Carrito vacio, añada productos!</h2>
+            <Link to='/' className='btn btn-info'>Ir al catalogo de productos</Link>
+          </div>
         )
       }
     </div>
