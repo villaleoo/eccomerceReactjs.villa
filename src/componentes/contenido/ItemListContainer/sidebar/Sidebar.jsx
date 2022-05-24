@@ -7,23 +7,15 @@ export const Sidebar = () => {
     <aside className='w-25'>
         <SidebarPrimero
                 tipoProducto1={'Zapatillas'}
-                unidades1={20}
                 tipoProducto2={'Remeras'}
-                unidades2={50}
-                tipoProducto3={'Pantalones'}
-                unidades3={15}
-                tipoProducto4={'Camperas'}
-                unidades4={12}
+                tipoProducto3={'Shorts'}
+                tipoProducto4={'Botines'}
+                tipoProducto5={'Gorras'}
             />
             <SidebarSegundo
                 marca1={'Adidas'}
-                unidades1={20}
                 marca2={'Nike'}
-                unidades2={23}
-                marca3={'Vans'}
-                unidades3={18}
-                marca4={'Puma'}
-                unidades4={21}
+                marca3={'Puma'}
             />
     </aside>
   )

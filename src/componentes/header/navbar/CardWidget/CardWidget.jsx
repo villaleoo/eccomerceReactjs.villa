@@ -29,9 +29,10 @@ export const CardWidget = () => {
           <ul className='px-0 w-100'>
             {cart.map((items,index)=>(
             <li key={index} className='bg-danger my-2 d-flex align-items-center justify-content-around w-100'>
-                <img style={imgSizing} src={items.img} alt="" />
-                <h4>{items.nombre}</h4>
-                <h5>${items.precio}</h5>
+                <img style={imgSizing} src={items.img[0]}/>
+                <h4>{items.name}</h4>
+                <h5>${items.price}</h5>
+                
                 <ItemCount
                 item={items}
                 stock={items.stock}

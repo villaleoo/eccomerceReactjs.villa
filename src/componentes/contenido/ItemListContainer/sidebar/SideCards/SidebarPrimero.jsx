@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export const SidebarPrimero = ({tipoProducto1, tipoProducto2,tipoProducto3,tipoProducto4,unidades1,unidades2,unidades3,unidades4}) => {
+export const SidebarPrimero = ({tipoProducto1, tipoProducto2,tipoProducto3,tipoProducto4,tipoProducto5}) => {
     return (
         <>
             <div className="card w-100">
@@ -8,10 +9,11 @@ export const SidebarPrimero = ({tipoProducto1, tipoProducto2,tipoProducto3,tipoP
                     <header className="card-header"><h6 className="title">Tipo de producto </h6></header>
                 <div className="filter-content">
                         <div className="list-group list-group-flush">
-                            <a href="#" className="list-group-item">{tipoProducto1}<span className="float-right badge badge-light round">{unidades1}</span> </a>
-                            <a href="#" className="list-group-item">{tipoProducto2}<span className="float-right badge badge-light round">{unidades2}</span>  </a>
-                            <a href="#" className="list-group-item">{tipoProducto3}<span className="float-right badge badge-light round">{unidades3}</span>  </a>
-                            <a href="#" className="list-group-item">{tipoProducto4}<span className="float-right badge badge-light round">{unidades4}</span>  </a>
+                            <Link to='/category/zapatillas' className="list-group-item">{tipoProducto1} </Link>
+                            <Link to='/category/remera' className="list-group-item">{tipoProducto2} </Link>
+                            <Link to='/category/short' className="list-group-item">{tipoProducto3} </Link>
+                            <Link to='/category/botines' className="list-group-item">{tipoProducto4}  </Link>
+                            <Link to='/category/gorra' className="list-group-item">{tipoProducto5}  </Link>
                         </div>  
                     </div>
                 </article> 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const SidebarSegundo = ({marca1,marca2,marca3,marca4,unidades1,unidades2,unidades3,unidades4}) => {
+export const SidebarSegundo = ({marca1,marca2,marca3}) => {
   return (
     <>
         <div className="card w-100">
@@ -30,21 +30,14 @@ export const SidebarSegundo = ({marca1,marca2,marca3,marca4,unidades1,unidades2,
                 </header>
                 <div className="filter-content">
                     <div className="card-body">
-                        <div className="custom-control custom-checkbox">
-                            <span className="float-right badge badge-light round">{unidades1}</span>
-                            <Link to="/category/adidas" className="custom-control-label" >{marca1}</Link>
+                        <div className="custom-control">
+                            <Link to="/category/adidas" className="" >{marca1}</Link>
                         </div>
-                        <div className="custom-control custom-checkbox">
-                            <span className="float-right badge badge-light round">{unidades2}</span>
-                            <Link to="/category/nike" className="custom-control-label" >{marca2}</Link>
+                        <div className="custom-control">
+                            <Link to="/category/nike" className="" >{marca2}</Link>
                         </div>
-                        <div className="custom-control custom-checkbox">
-                            <span className="float-right badge badge-light round">{unidades3}</span>
-                            <Link to="/category/vans"className="custom-control-label">{marca3}</Link>
-                        </div>
-                        <div className="custom-control custom-checkbox">
-                            <span className="float-right badge badge-light round">{unidades4}</span>
-                            <Link to="/category/puma"className="custom-control-label">{marca4}</Link>
+                        <div className="custom-control">
+                            <Link to="/category/puma"className="">{marca3}</Link>
                         </div>
                     </div> 
                 </div>

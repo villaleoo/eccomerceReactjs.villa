@@ -9,7 +9,6 @@ const GlobalStateContext = ({children}) => {
 
     
     function addToCart (product)  {
-      console.log(product);
       setCart([...cart,product])
     }
 
@@ -28,10 +27,10 @@ const GlobalStateContext = ({children}) => {
     }
 
     function totalPrice(){
-     return cart.reduce((acc,el)=> acc + (el.precio * el.cantidad),0)
+     return cart.reduce((acc,el)=> acc + (el.price * el.quantity),0)
     }
     function totalItems(){
-      return cart.reduce((acc,el)=>acc + el.cantidad,0)
+      return cart.reduce((acc,el)=>acc + el.quantity,0)
     }
     
    

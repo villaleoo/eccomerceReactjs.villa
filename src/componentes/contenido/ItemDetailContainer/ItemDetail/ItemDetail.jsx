@@ -11,7 +11,8 @@ import { Item } from '../../ItemListContainer/ItemList/Items/Item'
 const ItemDetail = ({item}) => {
 	
 	const {isInCart}= useContext(GlobalContext)
-
+	console.log(item);
+	
 	
 	
     let alto={
@@ -38,7 +39,8 @@ const ItemDetail = ({item}) => {
 	            				<i className="material-icons">share</i>
 	            				<i className="material-icons">favorite_border</i>
 	            			</div> */}
-	            			<img src={item.img} alt="green apple slice"/>
+	            			{/* <img src={item.img} alt="green apple slice"/> */}
+							<p className='text-center h-100 d-flex flex-column justify-content-center align-items-center'>a esto lo voy a reemplazar por un carrousel con imagenes y voy a modificar todo el itemDetail</p>
 	            		</div>
 	            		{/* <div className="photo-album">
 	            			<ul>
@@ -52,11 +54,11 @@ const ItemDetail = ({item}) => {
 	            </div>
 	            <div className="p-4 product__info">
 	            	<div className="title">
-	            		<h1>{item.nombre}</h1>
+	            		<h1>{item.name}</h1>
 	            		{/* <span>COD: 45999</span> */}
 	            	</div>
 	            	<div className="price">
-	            		$ <span>{item.precio}</span>
+	            		$ <span>{item.price}</span>
 	            	</div>
 	            	{/* <div className="variant">
 	            		<h3>SELECT A COLOR</h3>
@@ -69,10 +71,9 @@ const ItemDetail = ({item}) => {
 	            	</div> */}
 	            	<div className="description p-2">
 	            		<h3>DESCRIPCION</h3>
-                        <p className="text-sm-left text-break" style={text}>{item.descripcion}.</p>
+                        <p className="text-sm-left text-break" style={text}>{item.description}.</p>
 	            		<ul>
-                            <li className='text-uppercase'><span className='font-weight-bold'>Marca:</span> {item.marca}.</li>
-                            <li className='text-uppercase'><span className='font-weight-bold'>Genero:</span> {item.genero}.</li>
+                            <li className='text-uppercase'><span className='font-weight-bold'>Marca:</span> {item.mark}.</li>
                             <li className='text-uppercase'><span className='font-weight-bold'>Stock:</span> {item.stock} unidades.</li>
                         </ul>
 	            	</div>

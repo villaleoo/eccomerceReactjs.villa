@@ -5,49 +5,41 @@ import { GlobalContext } from '../../../../../context/GlobalStateContext'
 
 
 export const ItemCount = ({stock, item}) => {
-    const [quantity, setQuantity] = useState(item.cantidad)
-    
+    const [q, setQ] = useState(item.quantity)
+    console.log(stock);
     const {addItem,addToCart,isInCart} =useContext(GlobalContext)
    
 
     const restar=()=>{
-        if(quantity > 1){
-            setQuantity(quantity-1)
+        if(q > 1){
+            setQ(q-1)
             
         }
     }                                                                          
 
     const sumar=()=>{
-        if(stock != quantity){               
-            setQuantity(quantity+1)
+        if(stock != q){               
+            setQ(q+1)
         }
     }
-    console.log(quantity);
-
-    console.log(item);
+   
    
     
    
     
-    
-    
-   
+   //se buguean las cantidades porque a la cantidad que figura en panalla la saco de aqui y no del context
   return (
     <div className='my-4 flex-column d-flex justify-content-between' id="itemCount">
         <div className='d-flex justify-content-center'>
             <button className='mx-1' onClick={restar}>-</button>
-            <h5 className='px-2'>Unidades: {quantity}</h5>
-            {quantity < stock &&
+            <h5 className='px-2'>Unidades: {q}</h5> 
+            {q < stock &&
                 <button onClick={sumar} className="mx-1">+</button>
             }
         </div>
-        {/* {
-            quantity == stock &&
-            <p className=''>No hay mas stock disponible!</p>
-        } */}
         {
             !isInCart(item.id) &&
-        <Link to='/cart' onClick={()=> addToCart({...item,cantidad:quantity })} className="buy--btn">AÑADIR AL CARRITO</Link>
+        <Link to='/cart' onClick={()=> addToCart({...item,quantity:q })} className="buy--btn">AÑADIR AL CARRITO</Link>
         }
     </div>
   )

@@ -3,17 +3,18 @@ import { Item } from './Items/Item'
 import  './itemList.css'
 
 
-export const ItemList = ({producto}) => {
+export const ItemList = ({product}) => {
+    
     
   return (
     <div className='bg-warning w-75 d-flex flex-wrap justify-content-around'>
-        {producto.length > 0 ? (
-            producto.map((item, index)=>(
+        {product.length > 0 ? (
+            product.map((item, index)=>(
                 <div key={index} className='p-3'>
                     <Item
-                    imagen={item.img}
-                    nombre={item.nombre}
-                    precio={item.precio}
+                    img={item.img[0]}
+                    name={item.name}
+                    price={item.price}
                     id={item.id}
                     />
                 </div>
