@@ -7,6 +7,8 @@ import { ItemListContainer } from "../componentes/contenido/ItemListContainer/It
 
 import Layout from "../componentes/contenido/Layout"
 import { CardWidget } from "../componentes/header/navbar/CardWidget/CardWidget"
+import { Checkout } from "../componentes/header/navbar/CardWidget/checkout/Checkout"
+
 
 export const Rutas = () => {
   return (
@@ -18,6 +20,7 @@ export const Rutas = () => {
                     <Route path="/category/:id" element={<ItemListContainer/>}/>
                     <Route path="/item/:id" element={<ItemDetailContainer/>}/>
                     <Route path="/cart" element={<CardWidget/>}/>
+                    <Route path='/checkout' element={<Checkout/>}/>
                     <Route path="*" element={<ItemError/>}/>
                 </Route>
             </Routes>

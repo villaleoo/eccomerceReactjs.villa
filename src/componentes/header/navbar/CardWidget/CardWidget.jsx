@@ -45,7 +45,7 @@ export const CardWidget = () => {
               <div className='d-flex w-50 py-4 justify-content-between'>
                 <button onClick={clear} style={btnSizing} className='btn btn-dark width-min-content'>Vaciar carrito</button>
                 <Link to='/' className='btn btn-info'>Añadir mas productos</Link>
-                <button className='btn btn-success'>Comprar</button>
+                <Link to='/checkout' className='btn btn-success'>Finalizar compra</Link>
               </div>
           </div>
         )
