@@ -26,7 +26,7 @@ const Input = ({
           value={value}
           onChange={onChange}
           onBlur={(e) => onBlur(e)}
-          className={inputClassName} //{`form-control ${error.nombre && "is-invalid"}`}
+          className={inputClassName} 
           placeholder={placeholder}
         />
         {error.nombre && (
@@ -38,7 +38,8 @@ const Input = ({
 
 
 export const Checkout = () => {
-    const {cart,totalPrice} = useContext(GlobalContext)
+
+    const {cart,totalPrice,clear} = useContext(GlobalContext)
     const {fetchGenerateTicket}= useFirebase()
 
     const [form, setForm] = useState({
@@ -56,11 +57,12 @@ export const Checkout = () => {
     const [error, setError]=useState({})
     
 
-    const handleSubmit = (e)=>{
-        console.log(form);
+    const handleSubmit = ()=>{
         fetchGenerateTicket({dataBuyer:form});
+        clear()
         
     }
+    
 
     const handleChange= (e)=>{
         const{name,value} = e.target;
@@ -104,7 +106,7 @@ export const Checkout = () => {
                         <div className='credit-info'>
                             <div className='credit-info-content'>
                                 <h2>DATOS DEL COMPRADOR</h2>
-                                <form onSubmit={handleSubmit} className='py-5 my-4'>
+                                <form className='py-5 my-4'>
                                     {Object.keys(form.buyer).map((key,index)=>
                                         <Input
                                         key={index}
@@ -119,7 +121,7 @@ export const Checkout = () => {
                                         error={error}
                                         />
                                     )}
-                                    <button type='submit' className='pay-btn'>Comprar💸</button>
+                                    <button type='button' onClick={handleSubmit} className='pay-btn'>Comprar💸</button>
                                 </form>
                             </div>
                         </div>
