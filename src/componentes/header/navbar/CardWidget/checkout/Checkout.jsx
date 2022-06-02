@@ -90,18 +90,21 @@ export const Checkout = () => {
             {cart.length>0 ? 
                 <div className='d-flex  justify-content-center container'>
                     <div className='window'>
-                        <div className='order-info '>
+                        <div className='order-info d-flex flex-column '>
                             <div className='order-info-content py-4 w-100 overflow-auto'>
                                 <ul>
                                     {cart.map((item,index)=>
                                     <div className='d-flex justify-content-between my-3 bg-success' key={index}>
-                                        <li>{item.name} <span className='text-danger'>x {item.quantity}</span></li>
-                                        <li>${item.price}</li>
+                                            <li>{item.name} </li>
+                                            <li>${item.price}</li>
+                                            <li>
+                                                <span className='text-danger'>x {item.quantity}</span>
+                                            </li>
                                     </div>
                                     )}
-
                                 </ul>
                             </div>
+                            <h5>Total : ${totalPrice()}</h5>
                         </div>
                         <div className='credit-info'>
                             <div className='credit-info-content'>

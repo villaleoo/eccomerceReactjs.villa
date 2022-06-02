@@ -4,22 +4,20 @@ import { LogoSite } from "./LogoSite/LogoSite";
 import {NavLink} from 'react-router-dom'
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../context/GlobalStateContext";
+import { SearchBar } from "./searchBar/SearchBar";
 
 const NavBar =()=>{
     const {cart,totalItems}= useContext(GlobalContext)
     
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg position-fixed fixed-top navbar-dark bg-dark">
                 <LogoSite/>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
             <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <form className="form-inline my-2 my-lg-0 w-100 d-flex justify-content-end">
-                    <input className="form-control mr-sm-2 w-75" type="search" placeholder="Buscar..."/>
-                    <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                <SearchBar/>
                 <ul className="navbar-nav mr-auto w-100 d-flex justify-content-around mt-2 mt-lg-0">
                     <li className="nav-item active">
                         <NavLink className="nav-link" to='/'>Home <span className="sr-only">(current)</span></NavLink>

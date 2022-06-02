@@ -19,6 +19,7 @@ export const CardWidget = () => {
   }
 
  
+ 
 
 
   return (
@@ -32,11 +33,8 @@ export const CardWidget = () => {
                 <img style={imgSizing} src={items.img[0]}/>
                 <h4>{items.name}</h4>
                 <h5>${items.price}</h5>
-                
-                <ItemCount
-                item={items}
-                stock={items.stock}
-                />
+                <h5>Cantidad: {items.quantity}</h5>
+                <Link to={`/item/${items.id}`} onClick={()=> removeItem(items.id)}>Editar</Link>
                 <button className='btn btn-dark'onClick={()=> removeItem(items.id)}>Eliminar</button>
             </li>))
             }

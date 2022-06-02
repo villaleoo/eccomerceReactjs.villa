@@ -1,0 +1,69 @@
+.containerForm{
+    top:41px;
+    left:500px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 600px;
+}
+.rowForm{
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+}
+.card-search{
+    width: 600px;
+    border:none;
+  }
+  
+  .input-box{
+    position: relative;
+  }
+  
+  .input-box i {
+    position: absolute;
+    right: 13px;
+    top:15px;
+    color:#ced4da;
+    
+  
+  }
+  
+  
+  .formSearch:focus{
+    background-color: whitesmoke;
+    box-shadow: none;
+  }
+  
+  
+  .list{
+  
+    
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    height:600px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  
+  }
+  .listProducts{
+      width: 100%;
+      height: 100%;
+      
+  }
+  
+  .border-bottom{
+  
+    border-bottom: 2px solid yellow;
+  }
+  
+  .list i{
+    font-size: 19px;
+  }
+  
+  .list small{
+  
+    color:yellow;
+  }

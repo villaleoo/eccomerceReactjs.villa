@@ -1,20 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ItemCount } from './itemCount/ItemCount'
 import './itemDetail.scss'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { GlobalContext } from '../../../../context/GlobalStateContext'
-import { Item } from '../../ItemListContainer/ItemList/Items/Item'
-
-
 
 
 const ItemDetail = ({item}) => {
-	
+	const params = useParams()
 	const {isInCart}= useContext(GlobalContext)
+	
 	console.log(item);
-	
-	
-	
     let alto={
         height:'700px'
     }
@@ -22,12 +17,6 @@ const ItemDetail = ({item}) => {
         fontSize:'small'
     }
 
-	
-	
-	
-
-	
-	
   return (
     <div className='d-flex w-100'>   
         <div style={alto} className='d-flex w-100 justify-content-center '>
@@ -78,7 +67,7 @@ const ItemDetail = ({item}) => {
                         </ul>
 	            	</div>
 					{
-						isInCart(item.id) ? (
+						isInCart(item.id)  ?  (
 							<div className='d-flex flex-column align-items-center'>
 								<p className=''>En tu carrito ✔</p>
 								<Link to='/cart' className='btn btn-success'>Terminar compra</Link>
