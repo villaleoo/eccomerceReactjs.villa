@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
       }
     },[])
     
-    console.log(productDoc);
+   
     
     
    

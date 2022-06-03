@@ -1,45 +1,38 @@
+.containerSearch{
+  width: 100%;
+}
 .containerForm{
+    position: absolute;
     top:41px;
-    left:500px;
+    left:30%;
     border: none;
     padding: 0;
     margin: 0;
-    width: 600px;
+    width: 30%; 
 }
 .rowForm{
+  display: flex;
     margin: 0;
     padding: 0;
     border: none;
     width: 100%;
 }
+.containerInput{
+  width: 100%;
+}
 .card-search{
-    width: 600px;
+    width: 100%;
     border:none;
   }
-  
   .input-box{
     position: relative;
   }
-  
-  .input-box i {
-    position: absolute;
-    right: 13px;
-    top:15px;
-    color:#ced4da;
-    
-  
-  }
-  
-  
   .formSearch:focus{
     background-color: whitesmoke;
     box-shadow: none;
   }
-  
-  
   .list{
-  
-    
+    background-color: rgb(231, 228, 228);
     display: flex;
     align-items: center;
     overflow: auto;
@@ -49,21 +42,24 @@
   
   }
   .listProducts{
+      display: flex;
+      flex-direction: column;
       width: 100%;
       height: 100%;
-      
+      .productItem{
+       background-color: rgb(142, 0, 0);
+       border-radius: 10px;
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       
+       p{
+         color:white;
+         font-weight: bold;
+         padding: 0 0 0 20px;
+       }
+      }
   }
-  
   .border-bottom{
-  
-    border-bottom: 2px solid yellow;
-  }
-  
-  .list i{
-    font-size: 19px;
-  }
-  
-  .list small{
-  
-    color:yellow;
+    border-bottom: 2px solid ;
   }

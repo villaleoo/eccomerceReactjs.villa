@@ -4,10 +4,10 @@ import  './itemList.css'
 
 
 export const ItemList = ({product}) => {
-    console.log(product);
+    
     
   return (
-    <div className='bg-warning w-75 d-flex flex-wrap justify-content-around'>
+    <div className=' w-75 d-flex flex-wrap justify-content-around'>
         {product.length > 0 ? (
             product.map((item, index)=>(
                 <div key={index} className='p-3'>

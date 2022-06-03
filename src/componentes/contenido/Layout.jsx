@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Footer } from '../footer/Footer'
 import NavBar from '../header/navbar/NavBar'
-
+import generalsStyles from '../../css/layout.scss'
 
 
 const Layout = () => {

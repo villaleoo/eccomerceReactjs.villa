@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../../../../context/GlobalStateContext'
-import { ItemCount } from '../../../contenido/ItemDetailContainer/ItemDetail/itemCount/ItemCount';
 import { Link } from 'react-router-dom';
 
 export const CardWidget = () => {
