@@ -19,6 +19,7 @@ export const Rutas = () => {
                 <Route path="/" element={<Layout/>}>
                     <Route index element={<ItemListContainer/>}/>
                     <Route path="/category/:id" element={<ItemListContainer/>}/>
+                    <Route path='/price/:min/:max' element={<ItemListContainer/>}/>
                     <Route path="/item/:id" element={<ItemDetailContainer/>}/>
                     <Route path="/cart" element={<CardWidget/>}/>
                     <Route path='/checkout' element={<Checkout/>}/>

@@ -12,15 +12,14 @@ import itemListContainerStyle from './itemListContainer.scss'
 export const ItemListContainer = () => {
     const params= useParams()
     const {productsCollection,fetchGetProducts}= useFirebase()
-
-    
+   
     // //falta filtrar por precio y deporte
     useEffect(()=>{
         
         fetchGetProducts()
         
     },[])
-    let filterProducts= productsCollection.filter(item=> item.mark == params.id || item.productType == params.id)
+    let filterProducts= productsCollection.filter(item=> item.mark == params.id || item.productType == params.id || (item.price >= params.min & item.price <= params.max))
     
   return (
         <div className=' containerContent'>
