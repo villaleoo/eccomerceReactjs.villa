@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { ItemCount } from './itemCount/ItemCount'
 import './itemDetail.scss'
 import { Link, useParams } from 'react-router-dom'
@@ -6,59 +6,82 @@ import { GlobalContext } from '../../../../context/GlobalStateContext'
 
 
 const ItemDetail = ({item}) => {
-	const params = useParams()
+	// const params = useParams()
 	const {isInCart}= useContext(GlobalContext)
-	
+
+	let {img} = item
+	console.log(img);
 	console.log(item);
-    let alto={
-        height:'700px'
+	
+	
+	let stylo2={
+        with:'400',
+		heigth:'400px'
     }
+   
     let text={
         fontSize:'small'
     }
 
   return (
-    <div className='d-flex w-100'>   
-        <div style={alto} className='d-flex w-100 justify-content-center '>
-            <section className="product bg-warning">
-	            <div className="product__photo">
-	            	<div className="photo-container">
-	            		<div className="photo-main">
-	            			{/* <div className="controls">
-	            				<i className="material-icons">share</i>
-	            				<i className="material-icons">favorite_border</i>
-	            			</div> */}
-	            			{/* <img src={item.img} alt="green apple slice"/> */}
-							<p className='text-center h-100 d-flex flex-column justify-content-center align-items-center'>a esto lo voy a reemplazar por un carrousel con imagenes y voy a modificar todo el itemDetail</p>
-	            		</div>
-	            		{/* <div className="photo-album">
-	            			<ul>
-	            				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png" alt="green apple"/></li>
-	            				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303532/codepen/delicious-apples/half-apple.png" alt="half apple"/></li>
-	            				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303160/codepen/delicious-apples/green-apple-flipped.png" alt="green apple"/></li>
-	            				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537303708/codepen/delicious-apples/apple-top.png" alt="apple top"/></li>
-	            			</ul>
-	            		</div> */}
+    <div className='containerItemDetail'>   
+        <div className='containerDetail'>
+            <div className="containerDetailFather">
+	            <div className="productContainer">
+	            	<div className="mediaProductContainer">
+						<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+  							<ol className="carousel-indicators">
+								  {
+									  img.map((index)=>
+										  <li key={index} data-target="#carouselExampleIndicators" ></li>
+									  )
+								  }
+  							  {/* <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
+  							  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  							  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> */}
+  							</ol>
+  							<div className="carousel-inner">
+								  {
+									  item.img.map((img,index)=>
+										<div key={index} className='carousel-item'>
+											<img src={img} style={stylo2} alt='asd'/>
+										</div>
+									  )
+								  }
+  							  {/* <div className="carousel-item active">
+  							    <img src="..." className="d-block w-100" alt="..."/>
+  							  </div>
+  							  <div className="carousel-item">
+  							    <img src="..." className="d-block w-100" alt="..."/>
+  							  </div>
+  							  <div className="carousel-item">
+  							    <img src="..." className="d-block w-100" alt="..."/>
+  							  </div> */}
+  							</div>
+							<button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+    							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    							<span class="sr-only">Previous</span>
+  							</button>
+  							<button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+  								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+  								<span class="sr-only">Next</span>
+  							</button>
+						</div>
 	            	</div>
+					<div className='detailProductContainer'>
+
+					</div>
 	            </div>
-	            <div className="p-4 product__info">
-	            	<div className="title">
+	            <div className="p-4 ">
+	            	<div className="">
 	            		<h1>{item.name}</h1>
-	            		{/* <span>COD: 45999</span> */}
+						
+	            		
 	            	</div>
-	            	<div className="price">
+	            	<div className="">
 	            		$ <span>{item.price}</span>
 	            	</div>
-	            	{/* <div className="variant">
-	            		<h3>SELECT A COLOR</h3>
-	            		<ul>
-	            			<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png" alt="green apple"></li>
-	            			<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png" alt="yellow apple"></li>
-	            			<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png" alt="orange apple"></li>
-	            			<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png" alt="red apple"></li>
-	            		</ul>
-	            	</div> */}
-	            	<div className="description p-2">
+	            	<div className=" p-2">
 	            		<h3>DESCRIPCION</h3>
                         <p className="text-sm-left text-break" style={text}>{item.description}.</p>
 	            		<ul>
@@ -79,13 +102,12 @@ const ItemDetail = ({item}) => {
 								<ItemCount
 								stock={item.stock}
 								item={item}
-								// onAdd={onAdd}
 								/>
 							</div>
 						)
 					}
 	            </div>
-            </section>
+            </div>
         </div>
     </div>
   )

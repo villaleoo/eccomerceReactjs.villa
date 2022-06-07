@@ -4,14 +4,13 @@ import ItemDetail from './ItemDetail/ItemDetail'
 import './ItemDetail/itemDetail.scss'
 import { ItemError } from '../ItemListContainer/itemError/ItemError'
 import { useFirebase } from '../../../hooks/useFirebase'
+import { Spinner } from '../spinner/Spinner'
+import detailContainerStyle from './itemDetailContainer.scss'
 
 
 const ItemDetailContainer = () => {
     const params = useParams()
-    
     const {fetchGetIndividualProduct,productDoc}= useFirebase()
-    
-    
     
     useEffect(() => {
       fetchGetIndividualProduct(params.id)
@@ -21,22 +20,16 @@ const ItemDetailContainer = () => {
     },[])
     
    
-    
-    
-   
   return (
-    <div className="d-flex w-100">
+    <div className="d-flex w-100 containerDetailProduct">
       {productDoc ? 
         <ItemDetail item={productDoc}/> 
       :
       productDoc === null ?
-        <div className='d-flex justify-content-center align-items-center w-100 p-3'>
-          <div className="lds-hourglass"></div>
-        </div>
+        <Spinner/>
       : 
       <ItemError/>
       }
-     
     </div>
   )
 }

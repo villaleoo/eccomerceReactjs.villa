@@ -1,8 +1,9 @@
 import React from 'react'
+import footerStyle from './footer.scss'
 
 export const Footer = () => {
   return (
-    <div className='footer d-flex w-100 text-light justify-content-center p-5 bg-dark'>
+    <div className='text-light  p-5 bg-dark containerFooter'>
         <p>TODOS LOS DERECHOS RESERVADOS © 2022</p>
     </div>
   )

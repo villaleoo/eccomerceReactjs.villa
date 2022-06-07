@@ -1,0 +1,19 @@
+.cardsProducts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: white;
+    width: 300px;
+    height: 350px;
+    .cardsText{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        
+        h5{
+            font-weight: bolder;
+        }
+    }
+}

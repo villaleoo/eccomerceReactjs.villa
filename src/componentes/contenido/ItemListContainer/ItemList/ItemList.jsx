@@ -2,6 +2,7 @@ import React from 'react'
 import { Item } from './Items/Item'
 import  './itemList.scss'
 import { useParams } from 'react-router-dom'
+import { Spinner } from '../../spinner/Spinner'
 
 
 export const ItemList = ({product}) => {
@@ -9,7 +10,7 @@ export const ItemList = ({product}) => {
     
     
   return (
-    <div className='w-75 d-flex flex-wrap justify-content-around productListContainer'>
+    <div className='productListContainer'>
         {params.id!= undefined &&
             <h2 className='col-12'>Mostrando categoria/s: {params.id.toUpperCase()}.</h2>
         }
@@ -27,9 +28,7 @@ export const ItemList = ({product}) => {
         )
         :
         (
-            <div className='d-flex justify-content-center align-items-center w-100 p-3'>
-                <div className="lds-hourglass"></div>
-            </div>
+           <Spinner/>
         )
         }
     </div>

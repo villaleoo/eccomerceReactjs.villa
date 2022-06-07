@@ -1,6 +1,12 @@
 .containerContent{
     width: 100%;
+    height: 100%;
     display: flex;
     margin-top: 120px;
     padding: 0 12% 0 12%;
+    a{
+         text-decoration: none;
+         color: black;
+    
+    }
 }

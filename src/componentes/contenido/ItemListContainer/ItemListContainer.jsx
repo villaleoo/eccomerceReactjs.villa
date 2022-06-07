@@ -22,7 +22,7 @@ export const ItemListContainer = () => {
     let filterProducts= productsCollection.filter(item=> item.mark == params.id || item.productType == params.id || (item.price >= params.min & item.price <= params.max))
     
   return (
-        <div className=' containerContent'>
+        <div className='containerContent'>
             <Sidebar/>
             <ItemList product={filterProducts.length !== 0 ? (
                 filterProducts
