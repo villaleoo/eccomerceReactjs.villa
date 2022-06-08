@@ -1,19 +1,107 @@
-/* ----- Variables ----- */
-$color-primary: #4c4c4c;
-$color-secondary: #a6a6a6;
-$color-highlight: #ff3f40;
-
-
 .containerItemDetail{
 	width: 100%;
 	height: 100%;
 	.containerDetail{
-		background-color: blue;
 		width: 100%;
-		height: 150vh;
-		.mediaProductContainer{
+		height: 125vh;
+		.containerDetailFather{
+			border-style: double;
+			border-width: 8px;
+			border-radius: 10px;
 			width: 100%;
 			height: 100%;
+			.productContainer{
+				width: 100%;
+				height: 90vh;
+				display: flex;
+				.mediaProductContainer{
+					width: 50%;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+				}
+				.detailProductContainer{
+					width: 50%;
+					height: 100%;
+					.productName{
+						width: 100%;
+						height: 15%;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						h1{
+							font-size: xx-large;
+							font-weight: bold;
+						}
+					}
+				}
+				.productPrice{
+					width:100%;
+					height: min-content;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: 55px;
+					font-weight: bold;
+				}
+				.productDetails{
+					width: 95%;
+					margin-top: 13%;
+					padding: 0 0 0 8%;
+					border-top:1px solid gray;
+					border-bottom: 1px solid gray;
+					height: 30%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					h3{
+						font-weight: bold;
+						font-size: 25px;
+						text-decoration: underline;
+					}
+					ul{
+						padding: 0 0 0 10%;
+						li{
+							cursor: inherit;
+							list-style:square;
+							font-size: 18px;
+							padding: 1% 0;
+						}
+					}
+				}
+				.productCart{
+					margin-top: 10%;
+					width: 100%;
+					height: min-content;
+					.finishBuying{
+						p{
+							color: black;
+							font-weight: bold;
+							font-size: 25px;
+							span{
+								color:green;
+							}
+						}
+					}
+				}
+
+			}
+			.descriptionProduct{
+				width: 100%;
+				height: 33vh;
+				padding: 4% 0 0 0 ;
+				h3{
+					color: black;
+					font-weight: bold;
+					padding: 0 0 0 3%;
+					font-size: 25px;
+				}
+				p{
+					padding: 0 5% 0 5%;
+					color: black;
+					font-size: large;
+				}
+			}
 		}
 	}
 }
