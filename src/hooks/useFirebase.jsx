@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import {collection,addDoc,getDocs,getDoc,doc} from 'firebase/firestore'
+import  {React, useState } from 'react'
+import {collection,addDoc,getDocs} from 'firebase/firestore'
 import db from '../service/firebase'
-import { useParams } from 'react-router-dom'
+
 
 
 export const useFirebase = () => {

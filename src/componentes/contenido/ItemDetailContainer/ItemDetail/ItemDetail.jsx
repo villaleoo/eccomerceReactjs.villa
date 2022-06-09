@@ -1,19 +1,14 @@
 import React, { useContext } from 'react'
 import { ItemCount } from './itemCount/ItemCount'
 import './itemDetail.scss'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { GlobalContext } from '../../../../context/GlobalStateContext'
 import { Carousel } from './carousel/Carousel'
 
 
 const ItemDetail = ({item}) => {
-	// const params = useParams()
 	const {isInCart}= useContext(GlobalContext)
-
 	let {img} = item
-	
-	
-
   return (
     <div className='containerItemDetail'>   
         <div className='containerDetail'>

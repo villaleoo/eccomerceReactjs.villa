@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail/ItemDetail'
 import './ItemDetail/itemDetail.scss'
 import { ItemError } from '../ItemListContainer/itemError/ItemError'
 import { useFirebase } from '../../../hooks/useFirebase'
 import { Spinner } from '../spinner/Spinner'
-import detailContainerStyle from './itemDetailContainer.scss'
+import './itemDetailContainer.scss'
 
 
 const ItemDetailContainer = () => {

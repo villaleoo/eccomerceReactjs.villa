@@ -7,6 +7,12 @@ html{
         font-family: 'Nunito Sans', sans-serif;
         font-size: large;
         font-weight: bold;
-        
+        ul{
+            margin:0;
+            padding:0;
+        }
+        ul li {
+            list-style:none;
+          }
     }
 }

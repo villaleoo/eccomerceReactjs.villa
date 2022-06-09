@@ -5,8 +5,6 @@ import { GlobalContext } from '../../../../../context/GlobalStateContext';
 import { useFirebase } from '../../../../../hooks/useFirebase';
 
 
-
-
 const Input = ({
     className,
     type,
@@ -44,10 +42,10 @@ export const Checkout = () => {
 
     const [form, setForm] = useState({
         buyer: {
-            name:'',
-            surname:'',
-            telephone:'',
-            mail:'',
+            Nombre:'',
+            Apellido:'',
+            Telefono:'',
+            Mail:'',
         },
         buyTotal:totalPrice(),
         items:cart
@@ -67,7 +65,7 @@ export const Checkout = () => {
     const handleChange= (e)=>{
         const{name,value} = e.target;
         setForm({
-            ...form,         //me hace una copia de form, cambiando el buyer(linea 24)
+            ...form,         //me hace una copia de form, cambiando el buyer
             buyer: {        
                 ...form.buyer, 
                 [name]:value,
@@ -88,23 +86,32 @@ export const Checkout = () => {
     return (
         <>  
             {cart.length>0 ? 
-                <div className='d-flex  justify-content-center container'>
+                <div className='checkoutContainer'>
                     <div className='window'>
-                        <div className='order-info d-flex flex-column '>
-                            <div className='order-info-content py-4 w-100 overflow-auto'>
-                                <ul>
+                        <div className='order-info'>
+                            <h4 >Tus productos:</h4>
+                            <div className='order-info-content py-4 overflow-auto'>
+                                <ul className='p-0'>
                                     {cart.map((item,index)=>
-                                    <div className='d-flex justify-content-between my-3 bg-success' key={index}>
-                                            <li>{item.name} </li>
-                                            <li>${item.price}</li>
+                                    <div className='m-3 itemsBuy' key={index}>
+                                        <div className='itemQuantity'>
                                             <li>
-                                                <span className='text-danger'>x {item.quantity}</span>
+                                                <span className='text-danger'>x{item.quantity}</span>
                                             </li>
+                                        </div>
+                                        <div className='itemName'>
+                                            <li>- {item.name} </li>
+                                        </div>
+                                        <div className='itemPrice'>
+                                            <li>${item.price}</li>
+                                        </div>
                                     </div>
                                     )}
                                 </ul>
                             </div>
-                            <h5>Total : ${totalPrice()}</h5>
+                            <div className='totalBuy pt-5'>
+                                <h5>Total: ${totalPrice()}</h5>
+                            </div>
                         </div>
                         <div className='credit-info'>
                             <div className='credit-info-content'>
