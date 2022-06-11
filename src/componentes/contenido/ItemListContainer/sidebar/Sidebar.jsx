@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom';
 import { useFirebase } from '../../../../hooks/useFirebase';
-import sidebarStyle from './sidebar.scss'
+import './sidebar.scss'
 
 export const Sidebar = () => {
   let productType=['Gorra', 'Remera', 'Short', 'Zapatillas', 'Botines'];
@@ -20,10 +20,7 @@ export const Sidebar = () => {
    
  }
  
- const handleInput=(e)=>{
-   console.log(e.target.value);
-  console.log(e.target);
- }
+
 
 
   return (
@@ -100,7 +97,6 @@ export const Sidebar = () => {
                                 min='1'
                                 max='20000'
                                 value={filterPriceMin}
-                                onInput={handleInput}
                                 onChange={handleChangePriceMin}
                                 className="form-control"
                                 id="inputEmail4"
@@ -108,7 +104,11 @@ export const Sidebar = () => {
                             </div>
                             <div className="form-group col-md-6 text-right">
                                 <label>Max</label>
-                                <input type="number" onChange={handleChangePriceMax} className="form-control" placeholder="$30.000"/>
+                                <input
+                                type="number"
+                                onChange={handleChangePriceMax}
+                                className="form-control"
+                                placeholder="$30.000"/>
                             </div>
                             <Link to={`/price/${filterPriceMin}/${filterPriceMax}`} className='btn btn-info '>Aplicar</Link>
                         </div>
@@ -116,7 +116,7 @@ export const Sidebar = () => {
                 </div>
             </div>
           </div>
-          <div>
+          <div className='viewAllProducts'>
             <Link className='btn btn-warning' to='/'>Ver todos los productos</Link>
           </div>
         </div>

@@ -4,7 +4,7 @@ import './itemError.css'
 export const ItemError = () => {
   
   return (
-    <div className="d-flex w-100">
+    <div className="contenedorError">
         <div className="container w-100">
             <h1 className="first-four">4</h1>
             <div className="cog-wheel1">
@@ -19,7 +19,6 @@ export const ItemError = () => {
                   <div className="right"></div>
               </div>
             </div>
-
             <div className="cog-wheel2"> 
               <div className="cog2">
                   <div className="top"></div>
@@ -33,8 +32,8 @@ export const ItemError = () => {
               </div>
             </div>
             <h1 className="second-four">4</h1>
-            <p className="wrong-para">Uh Oh! Page not found!</p>
         </div>
+            <p className="wrong-para">Uh Oh! Page not found!</p>
     </div>
   )
 }

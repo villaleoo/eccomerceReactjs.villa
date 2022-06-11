@@ -2,4 +2,13 @@
     width: 100%;
     padding: 2% 8% 2% 8%;
     height: 100%;
+    display: flex;
+    .spinner{
+        height: 60vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+   
 }

@@ -48,7 +48,7 @@ export const ItemCount = ({stock, item}) => {
                             <button onClick={sumar} className="mx-1">+</button>
                         }
                     </div>
-                    <Link to='/cart' onClick={()=> addToCart({...item,quantity:q })} className="btn btn-danger w-50">AÑADIR AL CARRITO</Link>
+                    <button onClick={()=> addToCart({...item,quantity:q })} className="btn btn-danger w-50">AÑADIR AL CARRITO</button>
                 </div>
             }
         </div>

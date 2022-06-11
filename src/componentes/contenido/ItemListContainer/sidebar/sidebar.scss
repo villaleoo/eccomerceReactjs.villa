@@ -8,24 +8,12 @@ p {
 
 .containerAside{
     position: fixed;
-    height: 100%;
+    height: 95%;
     width: 25%;
     top:150px;
     
    
-   a{
-       color:black;
    
-    }
-   a:visited{
-       color: rgb(105, 12, 12);
-   }
-   a:hover{
-       text-decoration: none;
-       border-bottom: 1px solid black;
-   
-  
-   }
    .containerAllFilters{
         height: 100%;
         width: 100%;
@@ -35,6 +23,19 @@ p {
        .containerFilter{
            display: flex;
            flex-direction: column;
+           a{
+            color:black;
+        
+         }
+        a:visited{
+            color: rgb(105, 12, 12);
+        }
+        a:hover{
+            text-decoration: none;
+            border-bottom: 1px solid black;
+        
+       
+        }
            .listFilter{
                ul{
                    display: flex;
@@ -46,6 +47,13 @@ p {
            border-bottom:solid 1px gray;
        }
    }
-   
+   .viewAllProducts{
+    display: flex;
+    justify-content: center;
+    a{
+        color: black;
+        text-decoration: none;
+    }
+   }
     
 }

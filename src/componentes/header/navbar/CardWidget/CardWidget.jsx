@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../../../../context/GlobalStateContext'
 import { Link } from 'react-router-dom';
 import './cartStyle.scss'
-import emptyCart from '../../../assets/carritoVacio.png'
+import { CartEmpty } from './cartEmpty/CartEmpty';
 
 export const CardWidget = () => {
   const {cart,removeItem,clear,totalPrice} = useContext(GlobalContext)
@@ -64,13 +64,7 @@ export const CardWidget = () => {
         )
         :
         (
-          <div className='col-12 col-sm-12 col-lg-12 col-xl-12 p-0 emptyCartContainer'>
-            <div className='emptyCartImg'>
-              <img src={emptyCart} alt="" />
-            </div>
-            <h2 className='text-center my-4'>¡Carrito vacio, añada productos!</h2>
-            <Link to='/' className='btn btn-info'>Ir al catalogo de productos</Link>
-          </div>
+          <CartEmpty/>
         )
       }
     </div>

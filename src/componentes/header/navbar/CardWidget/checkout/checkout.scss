@@ -90,6 +90,7 @@
     width:calc(100% - 50px);
     -webkit-transition:all .2s ease;
             transition:all .2s ease;
+    width: 50%;
   }
   .pay-btn:hover {
     background:#22a877;
@@ -132,6 +133,22 @@
     display:-ms-flexbox;
     display:flex;
     width:100%;
+    .buying{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      h3{
+        font-weight: bold;
+      }
+    }
+    .formContainer{
+      width: 100%;
+      height: 70%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+    }
   }
   @media (max-width: 600px) {
     .window {

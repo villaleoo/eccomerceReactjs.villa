@@ -5,16 +5,24 @@
 
 
 
+.contenedorError{
+  
+  margin-top: 10%;
+  margin-bottom: 1%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center ;
 
+}
 .container{
-  height: 73vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Poppins", sans-serif;
   text-align: center;
-  
+  height: 100%;
  
 }
 
@@ -115,7 +123,8 @@ h1{
 
 .wrong-para{
   font-family: "Montserrat", sans-serif;
-  position: absolute;
+  display: flex;
+  justify-content: center ;
   bottom:15vmin;
   padding:3vmin 12vmin 3vmin 3vmin;
   font-weight:600;

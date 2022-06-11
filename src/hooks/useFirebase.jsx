@@ -1,6 +1,7 @@
 import  {React, useState } from 'react'
 import {collection,addDoc,getDocs} from 'firebase/firestore'
 import db from '../service/firebase'
+import Swal from 'sweetalert2'
 
 
 
@@ -44,11 +45,19 @@ export const useFirebase = () => {
 
 
     const fetchGenerateTicket = async ({dataBuyer})=>{
-        console.log(dataBuyer);
+       
+        const { buyer: {nombre}}=dataBuyer;
+        console.log(nombre);
         try {
             const col = collection(db,"orders")
             const order =  await addDoc(col,dataBuyer)
-            alert(`Su compra fue procesada con exito. codigo de compra: ${order.id}`)
+            Swal.fire({
+              title: `Gracias ${nombre}`,
+              position: 'center',
+              icon:'success',
+              text: `Tu orden de compra n° ${order.id} se generó exitosamente. Hasta pronto!`,
+              confirmButtonText: 'Entendido'
+            })
         } catch (error) {
             console.log(error)
         }

@@ -3,6 +3,8 @@ import './checkout.scss'
 import { useState } from 'react';
 import { GlobalContext } from '../../../../../context/GlobalStateContext';
 import { useFirebase } from '../../../../../hooks/useFirebase';
+import { CartEmpty } from '../cartEmpty/CartEmpty';
+import Swal from 'sweetalert2'
 
 
 const Input = ({
@@ -28,39 +30,52 @@ const Input = ({
           placeholder={placeholder}
         />
         {error.nombre && (
-          <h6 className="text-danger my-2 text-uppercase">{error.nombre}</h6>
-        )}
+        <p className="text-danger my-2">{error.nombre}</p>
+      )}
       </div>
     );
   };
 
-
 export const Checkout = () => {
+    let styleCartEmpty ={
+        marginTop: '120px',
+        heigth: 'calc (100vh-240px)'
+    }
 
-    const {cart,totalPrice,clear} = useContext(GlobalContext)
+    const {cart,totalPrice,clear,verificationFormCompleted} = useContext(GlobalContext)
     const {fetchGenerateTicket}= useFirebase()
 
     const [form, setForm] = useState({
         buyer: {
-            Nombre:'',
-            Apellido:'',
-            Telefono:'',
-            Mail:'',
-        },
+            nombre:'',
+            apellido:'',
+            telefono:'',
+            mail:''},
         buyTotal:totalPrice(),
-        items:cart
+        items:cart,
         }
     );
 
     const [error, setError]=useState({})
-    
+    const { buyer: {nombre, apellido, telefono, mail}}= form;
 
-    const handleSubmit = ()=>{
-        fetchGenerateTicket({dataBuyer:form});
-        clear()
-        
-    }
     
+    
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        if (verificationFormCompleted([nombre, apellido,telefono, mail] )){
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Campos obligatorios incompletos.',
+                showConfirmButton: false,
+                timer: 1700
+              })
+        }else{
+            fetchGenerateTicket({dataBuyer:form});
+            clear()
+        }
+    }
 
     const handleChange= (e)=>{
         const{name,value} = e.target;
@@ -74,15 +89,14 @@ export const Checkout = () => {
     }
 
     const handleBlur= (e) =>{
-        const {nameKey, valueOfKey}= e.target;
-        if(valueOfKey === ''){
-            setError({...error, [nameKey]:"Este campo es obligatorio"});
-            return
+        const {name, value}= e.target; 
+        console.log(name);
+        if(value === ''){
+            setError({...error, [name]:"Este campo es obligatorio!"});
+            return;
         }
         setError({})
     }
-    
-    
     return (
         <>  
             {cart.length>0 ? 
@@ -115,12 +129,14 @@ export const Checkout = () => {
                         </div>
                         <div className='credit-info'>
                             <div className='credit-info-content'>
-                                <h2>DATOS DEL COMPRADOR</h2>
-                                <form className='py-5 my-4'>
+                                <div className='buying'>
+                                    <h3>DATOS DEL COMPRADOR</h3>
+                                </div>  
+                                <form onSubmit={handleSubmit} className='formContainer py-5 my-4'>
                                     {Object.keys(form.buyer).map((key,index)=>
                                         <Input
                                         key={index}
-                                        className='mb-3'
+                                        className='mb-3 w-75'
                                         type='text'
                                         name={`${key}`}
                                         value={key.value}
@@ -131,14 +147,17 @@ export const Checkout = () => {
                                         error={error}
                                         />
                                     )}
-                                    <button type='button' onClick={handleSubmit} className='pay-btn'>Comprar💸</button>
+                                    <button type='submit' className='pay-btn'>Comprar💸</button>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             :
-            <h3>carrito vacio</h3>
+                <div style={styleCartEmpty}>
+                    <CartEmpty/>
+                </div>
+            
         }
       </>
     )

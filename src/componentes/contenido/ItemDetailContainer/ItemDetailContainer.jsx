@@ -21,14 +21,18 @@ const ItemDetailContainer = () => {
     
    
   return (
-    <div className="d-flex w-100 containerDetailProduct">
+    <div className="containerDetailProduct">
       {productDoc ? 
         <ItemDetail item={productDoc}/> 
       :
       productDoc === null ?
+      <div className='spinner'>
         <Spinner/>
+      </div>
       : 
-      <ItemError/>
+      
+        <ItemError/>
+      
       }
     </div>
   )
