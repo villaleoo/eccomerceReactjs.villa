@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, Link } from 'react-router-dom';
-import { useFirebase } from '../../../../hooks/useFirebase';
 import './sidebar.scss'
+import filter from '../../../assets/filtrar.png'
 
 export const Sidebar = () => {
   let productType=['Gorra', 'Remera', 'Short', 'Zapatillas', 'Botines'];
@@ -25,8 +25,8 @@ export const Sidebar = () => {
 
   return (
     <aside className='navbar-expand-lg containerAside'>
-      <button data-toggle='collapse' data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" className='navbar-toggler btnFilter'>Filtro</button>
-      <div className='collapse navbar-collapse h-75' id='navbarSupportedContent'>
+      <button data-toggle='collapse' data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" className='navbar-toggler btnFilter'><img src={filter} alt="filter"/></button>
+      <div className='collapse navbar-collapse containerFilters' id='navbarSupportedContent'>
         <div className='containerAllFilters'>
 
           <div className='containerFilter'>
@@ -39,7 +39,12 @@ export const Sidebar = () => {
               <ul>
                 {
                   productType.map((type,index)=>
-                    <NavLink  to={`/category/${type.toLowerCase()}`} key={index}>{type}</NavLink>
+                    <NavLink  to={`/category/${type.toLowerCase()}`} key={index}>
+                      
+                      {type}
+                      
+                    
+                    </NavLink>
                   )
                 }         
               </ul>
@@ -56,7 +61,11 @@ export const Sidebar = () => {
               <ul>
                 {
                   sports.map((sport,index)=>
-                  <Link to={`/category/${sport.toLowerCase()}`} key={index}>{sport}</Link>
+                  <Link  to={`/category/${sport.toLowerCase()}`} key={index}>
+                    
+                    {sport}
+                    
+                  </Link>
                   )
                 }
               </ul>
@@ -73,23 +82,25 @@ export const Sidebar = () => {
               <ul>
                 {
                   marks.map((mark,index)=>
-                  <Link to={`/category/${mark.toLowerCase()}`} key={index}>{mark}</Link>
+                  <Link  to={`/category/${mark.toLowerCase()}`} key={index}>
+                    
+                    {mark}
+                  </Link>
                   )
                 }
               </ul>
             </div>
               
           </div>
-          <div className='conainterFilterPrice'>
-              
+          <div className='containerFilterPrice'>
             <div className='filterTitle'>
               <h4>Precio</h4>
             </div>
-            <div>
+            <div className='filterPrice'>
                 <div className="filter-content">
                     <div className="card-body">
-                        <div className="form-row">
-                            <div className="form-group col-md-6">
+                        <div className="form-row ">
+                            <div className="form-group col-lg-6">
                                 <label>Min</label>
                                 <input
                                 type="number"
@@ -102,7 +113,7 @@ export const Sidebar = () => {
                                 id="inputEmail4"
                                 placeholder="$0"/>
                             </div>
-                            <div className="form-group col-md-6 text-right">
+                            <div className="form-group col-lg-6">
                                 <label>Max</label>
                                 <input
                                 type="number"
@@ -120,7 +131,6 @@ export const Sidebar = () => {
             <Link className='btn btn-warning' to='/'>Ver todos los productos</Link>
           </div>
         </div>
-
       </div>
     </aside>
   )

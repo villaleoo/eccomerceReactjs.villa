@@ -8,11 +8,10 @@ import { Spinner } from '../../spinner/Spinner'
 export const ItemList = ({product}) => {
     const params = useParams()
     
-    
   return (
     <div className='productListContainer'>
         {params.id!= undefined &&
-            <h2 className='col-12'>Mostrando categoria/s: {params.id.toUpperCase()}.</h2>
+            <h5 className='col-12 text-center'>Mostrando categoria/s: {params.id.toUpperCase()}.</h5>
         }
         {product.length > 0 ? (
             product.map((item, index)=>(

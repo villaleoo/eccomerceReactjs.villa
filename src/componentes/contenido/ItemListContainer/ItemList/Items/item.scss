@@ -6,6 +6,10 @@
     border: white;
     width: 300px;
     height: 350px;
+    img{
+        width: 200px;
+        height: 200px;
+    }
     .cardsText{
         display: flex;
         flex-direction: column;
@@ -16,4 +20,22 @@
             font-weight: bolder;
         }
     }
+}
+@media only screen and (min-width:0px) and (max-width:768px){
+    .cardsProducts{
+        width: 150px;
+        height: 200px;
+        img{
+            width: 80px;
+            height: 80px;
+        }
+    }
+    
+}
+
+@media only screen and (min-width:769px) and (max-width:1023px){
+
+}
+@media only screen and (min-width:1024px) and (max-width:1440px){
+
 }

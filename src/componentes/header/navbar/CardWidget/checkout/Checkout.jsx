@@ -80,7 +80,7 @@ export const Checkout = () => {
     const handleChange= (e)=>{
         const{name,value} = e.target;
         setForm({
-            ...form,         //me hace una copia de form, cambiando el buyer
+            ...form,        
             buyer: {        
                 ...form.buyer, 
                 [name]:value,

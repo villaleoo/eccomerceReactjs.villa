@@ -7,16 +7,13 @@ import cardsStyle from './item.scss'
 
 
 export const Item = ({img,name,price, id}) => {
-    let styleImg={
-        width:'200px',
-        height:'200px',
-    }
+   
 
   return (
 
     <>
         <Link to={`/item/${id}`} className="card cardsProducts">
-            <img src={img || imgDefault} style={styleImg} />
+            <img src={img || imgDefault} />
             <div className="card-body cardsText">
               <h6 className="card-title">{name}</h6>
               <h5 className="card-text">$ {price}</h5>

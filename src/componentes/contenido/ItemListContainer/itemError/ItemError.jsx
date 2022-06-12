@@ -1,5 +1,5 @@
 import React from 'react'
-import './itemError.css'
+import './itemError.scss'
 
 export const ItemError = () => {
   

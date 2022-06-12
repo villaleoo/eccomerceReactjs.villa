@@ -7,58 +7,65 @@
         align-items: center;
         width: 100%;
         height: 100%;
-        .containerProduct{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            background-color: rgb(199, 61, 61);
-            .imgProduct{
-                width: 12%;
-                display: flex;
-                justify-content: center;
-            }
-            .itemName{
-                width: 25%;
+        ul{
+            .containerProduct{
+                width: 100%;
                 height: 100%;
                 display: flex;
-                padding: 0 0 0 2%;
-            }
-            .itemPrice{
-                width: 20%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                h3{
-                    font-size: 22px;
-                    font-weight: bold;
+                align-items: center;
+                background-color: rgb(199, 61, 61);
+                .imgProduct{
+                    width: 12%;
+                    display: flex;
+                    justify-content: center;
+                    img{
+                        width: 150px;
+                        height: 150px;
+                    }
+                }
+                .itemName{
+                    width: 25%;
+                    height: 100%;
+                    display: flex;
+                    padding: 0 0 0 2%;
+                }
+                .itemPrice{
+                    width: 20%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    h3{
+                        font-size: 22px;
+                        font-weight: bold;
+                    }
+                }
+                .itemQuantity{
+                    width: 15%;
+                    display: flex;
+                    justify-content: center;
+                    h6{
+                        font-weight: bold;
+                    }
+                }
+                .itemEdit{
+                    width: 10%;
+                    display: flex;
+                    justify-content: center;
+                    span{
+                        color: rgb(182, 5, 5);
+                        font-size: 12px;
+                    }
+                    a:hover{
+                        content: attr(title);
+                    }
+                }
+                .itemDelete{
+                    width: 18%;
+                    display: flex;
+                    justify-content: center;
                 }
             }
-            .itemQuantity{
-                width: 15%;
-                display: flex;
-                justify-content: center;
-                h6{
-                    font-weight: bold;
-                }
-            }
-            .itemEdit{
-                width: 10%;
-                display: flex;
-                justify-content: center;
-                span{
-                    color: rgb(182, 5, 5);
-                    font-size: 12px;
-                }
-                a:hover{
-                    content: attr(title);
-                }
-            }
-            .itemDelete{
-                width: 18%;
-                display: flex;
-                justify-content: center;
-            }
+
         }
         .totalPurchase{
             width: 100%;
@@ -76,4 +83,69 @@
         }
     }
    
+}
+
+@media only screen and (min-width:0px) and (max-width:768px){
+    .cartContainer{
+        .cartWithProductsContainer{
+           ul{
+            .containerProduct{
+                flex-direction: column;
+                .imgProduct{
+                    width: 100%;
+                    img{
+                        width: 80px;
+                        height: 80px;
+                    }
+                }
+                .itemName{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    padding: 0;
+                    h3{
+                        font-size: large;
+                    }
+                }
+                .itemPrice{
+                    width: 100%;
+                    h3{
+                        font-size: large;
+                    }
+                }
+                .itemQuantity{
+                    width: 100%;
+                    h6{
+                        font-weight: bold;
+                    }
+                }
+                .itemEdit{
+                    width: 100%;
+                    margin-bottom: 2%;
+                    span{
+                        font-size: small;
+                    }
+                }
+                .itemDelete{
+                    width: 100%;
+                    margin-bottom: 2%;
+                }
+            }
+           }
+           .totalPurchase{
+            h2{
+                font-size: x-large;
+            }
+            }
+            .buttonsCart{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width:769px) and (max-width:1023px){
+
+}
+@media only screen and (min-width:1024px) and (max-width:1440px){
 }

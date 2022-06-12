@@ -10,10 +10,10 @@ const ItemDetail = ({item}) => {
 	const {isInCart}= useContext(GlobalContext)
 	let {img} = item
   return (
-    <div className='containerItemDetail'>   
+    <div className='containerItemDetail container-fluid'>   
         <div className='containerDetail'>
-            <div className="containerDetailFather">
-	            <div className="productContainer">
+            <div className="containerDetailFather row">
+	            <div className="productContainer col-12 col-sm-12">
 	            	<div className="mediaProductContainer">
 						<Carousel 
 						productImgs={img}
@@ -55,7 +55,7 @@ const ItemDetail = ({item}) => {
 						</div>
 					</div>
 	            </div>
-	            <div className="descriptionProduct">
+	            <div className="descriptionProduct col-12 col-sm-12">
 	            	<h3>Descripción del producto</h3>
                     <p>{item.description}.</p>
 	            </div>

@@ -6,7 +6,6 @@
 
 
 .contenedorError{
-  
   margin-top: 10%;
   margin-bottom: 1%;
   display: flex;
@@ -130,3 +129,31 @@ h1{
   font-weight:600;
   color:#092532;
 }
+
+@media only screen and (min-width:0px) and (max-width:768px){
+    .contenedorError{
+    
+      height: calc(100vh - 150px);
+      width: 100%;
+      
+    }
+  }
+
+@media only screen and (min-width:769px) and (max-width:1023px){
+  .contenedorError{
+    height: calc(100vh - 150px);
+    width: 100%;
+    
+  }
+}
+
+
+@media only screen and (min-width:1024px) and (max-width:1440px){
+  .contenedorError{
+    
+    height: calc(100vh - 250px);
+    width: 100%;
+    
+  }
+}
+

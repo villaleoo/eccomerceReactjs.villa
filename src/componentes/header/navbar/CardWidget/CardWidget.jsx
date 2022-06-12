@@ -9,15 +9,10 @@ export const CardWidget = () => {
 
 
   
-  let imgSizing={
-    heigth:'150px',
-    width:'150px'
-  }
+
 
   
-  let btnSizing={
-    width: '150px'
-  }
+  
 
  
  
@@ -32,7 +27,7 @@ export const CardWidget = () => {
                 {cart.map((items,index)=>(
                 <li key={index} className='my-2 containerProduct'>
                     <div className='imgProduct'>
-                      <img style={imgSizing} src={items.img[0]} alt='products'/>
+                      <img  src={items.img[0]} alt='products'/>
                     </div>
                     <div className='itemName'>
                       <h5>{items.name}</h5>
@@ -56,7 +51,7 @@ export const CardWidget = () => {
                 <h2>Total: $ {totalPrice()}</h2>
               </div>
               <div className='py-4 buttonsCart'>
-                <button onClick={clear} style={btnSizing} className='btn btn-dark width-min-content'>Vaciar carrito</button>
+                <button onClick={clear}  className='btn btn-dark width-min-content'>Vaciar carrito</button>
                 <Link to='/' className='btn btn-info'>Añadir mas productos</Link>
                 <Link to='/checkout' className='btn btn-success'>Finalizar compra</Link>
               </div>
