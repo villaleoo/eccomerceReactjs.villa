@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom';
 import './sidebar.scss'
 import filter from '../../../assets/filtrar.png'

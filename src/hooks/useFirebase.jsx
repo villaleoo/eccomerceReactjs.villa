@@ -33,15 +33,12 @@ export const useFirebase = () => {
          const data = await getDocs(getItemsPromise)
          setTimeout(() => {
            const result = data.docs.map(doc=> doc = {id:doc.id, ...doc.data()}) 
-           setProductDoc(result.find(item=>item.id == id)) //opté por traer TODOS los productos y filtrar el item seleccionado
+           setProductDoc(result.find(item=>item.id == id)) 
          }, 1000);
         } catch (error) {
           console.log(error);
         }
       };
-
-
-
 
 
     const fetchGenerateTicket = async ({dataBuyer})=>{

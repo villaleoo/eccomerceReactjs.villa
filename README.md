@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+		///NAVEGACION ENTRE COMPONENTES///
+SRC
+>COMPONENTES
+>CONTENIDO
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Incluye 2 carpetas "ItemDetailContainer" e "ItemListContainer" y un componente Layout(vista que se mantiene en todo el sitio header-content-footer).
+ 
+ItemDetailContainer e ItemListContainer funcionan como contenedor de las vistas de los productos dependiendo de si estamos observando en nuestro Layout una lista de productos o un producto en particular.
 
-## Available Scripts
+>ItemListContainer: es el index del sitio y contiene a ItemList que es quien contiene dentro de si a los Items que conforman las cards de c/u de los productos, ademas contiene a Sidebar (barra lateral de filtros),ItemError que es el componente por defecto cuando se accede a una ruta inexistente y al Spinner del sitio.
+>ItemDetailContainer: funciona como contenedor de la descripcion/detalles de un producto en particular, dentro de si contiene a ItemDetail que es quien muestra esos detalles "ayudado" por un Carousel y un ItemCount que son hijos y estan dentro de ItemDetail.
 
-In the project directory, you can run:
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### `npm start`
+>FOOTER
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Incluye un solo componente que es el footer de todo el sitio.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-### `npm test`
+>HEADER
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+incluye 4 carpetas y 1 componente NavBar.
 
-### `npm run build`
+>Cart: funciona como contenedor de nuestra vista del carrito, muestra los items que se van añadiendo al carrito.Contiene CartEmpty componente que se muestra cuando el carrito esta vacio y Checkout componente que se muestra cuando se procede a finalizar la compra y permite que el usuario ingrese sus datos para emitir la orden de compra.
+>CartWidget: componente de imagen del carrito en la barra de navegacion.
+>LogoSite: componente de imagen del logo del sitio en la barra de navegacion.
+>SearchBar: componente de la barra de busqueda de productos en la barra de navegacion.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+NavBar:Abarca toda la barra de navegacion con sus hijos CartWidget (direcciona a Cart), LogoSite, SearchBar.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+SRC
+>CONTEXT
 
-### `npm run eject`
+Contiene el componente GlobalStateContext, que provee las funciones para el funcionamiento del carrito (agregar,borrar,verificar,etc.)y tambien una funcion para verificar que los campos del formulario de compra (Checkout) estén llenos.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+SRC
+>HOOKS
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Contiene el componente useFirebase que provee promesas asincronicas de comunicacion con la base de datos (traer la lista de todos los productos,un producto en particular y la generación de orden de compra en la base de datos) para consumir por cualquier componente del sitio.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SRC
+>ROUTES
 
-## Learn More
+Contiene el componente Rutas, donde se importan los componentes-contenedores y le permite al sitio moverse atraves de Links, modificando la url con el uso de path's.
+Rutas, se importa en el archivo App.js asociado al HTML de la carpeta PUBLIC y asi quedan importados todos los componentes en nuestro sitio.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+SRC
+>SERVICE
 
-### Code Splitting
+Contiene el archivo Js donde se configura nuestra base de datos de firebase.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+********************************************************************************************************************************************************************************************************************************************************************************************************************************************
+			///FUNCIONAMIENTO DE LOS COMPONENTES PRINCIPALES
 
-### Analyzing the Bundle Size
+ItemListContainer: trae a todos los productos de la base de datos por promesa(array) y los filtra en caso de que se aplique filtro.
+	-ItemList: una vez que ItemListContainer resuelve la promesa de peticion con la db, recibe por props el array de productos y crea un Item por cada uno de ellos pasandoselos a Item por props.
+		-Item: es una card de producto envuelta en un Link configurado para enviarlo al ItemDetailContainer en caso de que se desee acceder a un producto.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+ItemDetailContainer: trae un producto(objeto) en particular a traves de una promesa y se lo pasa a ItemDetail por props para que muestre sus caracteristicas.
+	-ItemDetail: recibe el producto del ItemDetailContainer y lo muestra creando un template con las propiedades del objeto. La vista de ItemDetail se modifica si el producto ya se encuentra en el carrito de compras.
+		-ItemCount: almacena la cantidad del producto que modifica el usuario y se lo pasa al GlobalStateContext quien es el encargado de las funcionalidades del carrito.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+Cart: consume un estado(array) del GlobalStateContext que es el encargado de almacenar los productos que se añaden al carrito y hace una vista al usuario por c/u de los productos añadidos (cada producto añadido es un objeto en ese estado).Ademas consume otras funciones que le permite borrar, editar y vaciar el array del carrito.
+	-Checkout: tiene un estado propio que se utiliza para almacenar los datos del usuario-comprador, ademas almacena el total de la compra y los productos seleccionados.	
+ 		   Consume de useFirebase la funcion para escribir en la base de datos, en la cual escribe en una coleccion los datos del usuario,total y productos.
+		   Contiene logica que es para detectar lo que escribe el usuario en los inputs. En su layout, muestra los items que se compran, el total y un form para completar con los datos del usuario.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+NavBar y Sidebar: permiten navegar mediante Links utilizados de la libreria react-router-dom a los productos o  grupos de productos determinados.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+GlobalStateContext: actua como proveedor de estados y funciones para el funcionamiento correcto del carrito de compras y tambien una funcion que permite verificar que el usuario complete todos los datos del form del Checkout.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+useFirebase: es un hook que se comunica con la base de datos (firestore Database) y le permite acceder a datos escritos en esa base de datos (productos cargados en ella) y tambien escribir en la base de datos (en este proyecto se escriben ordenes de compra con los datos del usuario + total de compra + productos).
+
+
+
+
+
+
+
+
+
+
+
