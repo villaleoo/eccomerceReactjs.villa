@@ -61,29 +61,28 @@ Contiene el archivo Js donde se configura nuestra base de datos de firebase.
 ********************************************************************************************************************************************************************************************************************************************************************************************************************************************
 			///FUNCIONAMIENTO DE LOS COMPONENTES PRINCIPALES
 
-ItemListContainer: trae a todos los productos de la base de datos por promesa(array) y los filtra en caso de que se aplique filtro.
-	-ItemList: una vez que ItemListContainer resuelve la promesa de peticion con la db, recibe por props el array de productos y crea un Item por cada uno de ellos pasandoselos a Item por props.
-		-Item: es una card de producto envuelta en un Link configurado para enviarlo al ItemDetailContainer en caso de que se desee acceder a un producto.
+>ItemListContainer: trae a todos los productos de la base de datos por promesa(array) y los filtra en caso de que se aplique filtro.
+>ItemList: una vez que ItemListContainer resuelve la promesa de peticion con la db, recibe por props el array de productos y crea un Item por cada uno de ellos pasandoselos a Item por props.
+>Item: es una card de producto envuelta en un Link configurado para enviarlo al ItemDetailContainer en caso de que se desee acceder a un producto.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+>ItemDetailContainer: trae un producto(objeto) en particular a traves de una promesa y se lo pasa a ItemDetail por props para que muestre sus caracteristicas.
+>ItemDetail: recibe el producto del ItemDetailContainer y lo muestra creando un template con las propiedades del objeto. La vista de ItemDetail se modifica si el producto ya se encuentra en el carrito de compras.
+>ItemCount: almacena la cantidad del producto que modifica el usuario y se lo pasa al GlobalStateContext quien es el encargado de las funcionalidades del carrito.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-ItemDetailContainer: trae un producto(objeto) en particular a traves de una promesa y se lo pasa a ItemDetail por props para que muestre sus caracteristicas.
-	-ItemDetail: recibe el producto del ItemDetailContainer y lo muestra creando un template con las propiedades del objeto. La vista de ItemDetail se modifica si el producto ya se encuentra en el carrito de compras.
-		-ItemCount: almacena la cantidad del producto que modifica el usuario y se lo pasa al GlobalStateContext quien es el encargado de las funcionalidades del carrito.
+>Cart: consume un estado(array) del GlobalStateContext que es el encargado de almacenar los productos que se añaden al carrito y hace una vista al usuario por c/u de los productos añadidos (cada producto añadido es un objeto en ese estado).Ademas consume otras funciones que le permite borrar, editar y vaciar el array del carrito.
+>Checkout: tiene un estado propio que se utiliza para almacenar los datos del usuario-comprador, ademas almacena el total de la compra y los productos seleccionados.Consume de useFirebase la funcion para escribir en la base de datos, en la cual escribe en una coleccion los datos del usuario,total y productos.Contiene logica que es para detectar lo que escribe el usuario en los inputs.En su layout, muestra los items que se compran, el total y un form para completar con los datos del usuario.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+>NavBar y Sidebar: permiten navegar mediante Links utilizados de la libreria react-router-dom a los productos o  grupos de productos determinados.
 
-Cart: consume un estado(array) del GlobalStateContext que es el encargado de almacenar los productos que se añaden al carrito y hace una vista al usuario por c/u de los productos añadidos (cada producto añadido es un objeto en ese estado).Ademas consume otras funciones que le permite borrar, editar y vaciar el array del carrito.
-	-Checkout: tiene un estado propio que se utiliza para almacenar los datos del usuario-comprador, ademas almacena el total de la compra y los productos seleccionados.	
- 		   Consume de useFirebase la funcion para escribir en la base de datos, en la cual escribe en una coleccion los datos del usuario,total y productos.
-		   Contiene logica que es para detectar lo que escribe el usuario en los inputs. En su layout, muestra los items que se compran, el total y un form para completar con los datos del usuario.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+>GlobalStateContext: actua como proveedor de estados y funciones para el funcionamiento correcto del carrito de compras y tambien una funcion que permite verificar que el usuario complete todos los datos del form del Checkout.
 
-NavBar y Sidebar: permiten navegar mediante Links utilizados de la libreria react-router-dom a los productos o  grupos de productos determinados.
-
-
-GlobalStateContext: actua como proveedor de estados y funciones para el funcionamiento correcto del carrito de compras y tambien una funcion que permite verificar que el usuario complete todos los datos del form del Checkout.
-
-
-useFirebase: es un hook que se comunica con la base de datos (firestore Database) y le permite acceder a datos escritos en esa base de datos (productos cargados en ella) y tambien escribir en la base de datos (en este proyecto se escriben ordenes de compra con los datos del usuario + total de compra + productos).
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+>useFirebase: es un hook que se comunica con la base de datos (firestore Database) y le permite acceder a datos escritos en esa base de datos (productos cargados en ella) y tambien escribir en la base de datos (en este proyecto se escriben ordenes de compra con los datos del usuario + total de compra + productos).
 
 
 
