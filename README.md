@@ -1,6 +1,7 @@
 		///NAVEGACION ENTRE COMPONENTES///
 SRC
->COMPONENTES
+(COMPONENTES)
+
 >CONTENIDO
 
 Incluye 2 carpetas "ItemDetailContainer" e "ItemListContainer" y un componente Layout(vista que se mantiene en todo el sitio header-content-footer).
