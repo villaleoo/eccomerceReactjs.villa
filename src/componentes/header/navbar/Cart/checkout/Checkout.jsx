@@ -73,7 +73,9 @@ export const Checkout = () => {
               })
         }else{
             fetchGenerateTicket({dataBuyer:form});
-            clear()
+            setTimeout(() => {
+                clear()
+            }, 1000);
         }
     }
 
