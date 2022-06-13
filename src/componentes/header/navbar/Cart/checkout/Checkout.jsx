@@ -157,7 +157,6 @@ export const Checkout = () => {
                 <div style={styleCartEmpty}>
                     <CartEmpty/>
                 </div>
-            
         }
       </>
     )

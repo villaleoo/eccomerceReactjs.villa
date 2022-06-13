@@ -28,9 +28,10 @@ const GlobalStateContext = ({children}) => {
     };
 
     function removeItem(itemId){
-      setCart(cart.filter(r => r.id != itemId)); //retorna un array con todos los items que sean distintos al del id seleccionado
+      setCart(cart.filter(r => r.id != itemId)); 
      
     };
+
     function clear(){
       setCart([]);
     };
@@ -38,7 +39,6 @@ const GlobalStateContext = ({children}) => {
     function totalItems(){
       return cart.reduce((acc,el)=>acc + el.quantity,0);
     };
-
    
     function totalPrice(){
      return cart.reduce((acc,el)=> acc + (el.price * el.quantity),0);

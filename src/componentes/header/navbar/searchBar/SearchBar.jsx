@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useFirebase } from '../../../../hooks/useFirebase';
-import styles from './searchBar.scss'
+import './searchBar.scss'
 import {Link} from 'react-router-dom'
 
 
@@ -15,10 +15,12 @@ export const SearchBar = () => {
       heigth:'140px'
     };
 
+
     const handleChange=(e)=>{
        setSearching(e.target.value);
        filterSearch(e.target.value);
     };
+
 
     const filterSearch = (termOfSearch)=>{
 
@@ -31,9 +33,7 @@ export const SearchBar = () => {
 
         }
       });
-
       setSearch(resultOfSearch);
-
     };
 
     useEffect(() => {
@@ -61,6 +61,7 @@ export const SearchBar = () => {
             </div>
               {
                 search.length!== 0 && search.length!== productsCollection.length &&
+
                 <div className="list border-bottom ">
                   <div className="px-4 listProducts overflow-auto">
                     {
@@ -73,6 +74,7 @@ export const SearchBar = () => {
                     }
                   </div>                   
                 </div>
+
               }
           </div>
         </div> 

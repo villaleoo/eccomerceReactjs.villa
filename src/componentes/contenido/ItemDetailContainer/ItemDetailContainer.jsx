@@ -22,13 +22,17 @@ const ItemDetailContainer = () => {
    
   return (
     <div className="containerDetailProduct">
-      {productDoc ? 
+      {productDoc ?
+
         <ItemDetail item={productDoc}/> 
+
       :
       productDoc === null ?
+
       <div className='spinner'>
         <Spinner/>
       </div>
+      
       : 
       
         <ItemError/>

@@ -1,24 +1,24 @@
 import React, { useContext } from "react";
 import { LogoSite } from "./LogoSite/LogoSite";
 import {NavLink, useLocation} from 'react-router-dom'
-import { Link } from "react-router-dom";
 import { GlobalContext } from "../../../context/GlobalStateContext";
 import { SearchBar } from "./searchBar/SearchBar";
-import Cart from '../../assets/carrito-de-compras.png'
+import { CartWidget } from "./cartWidget/CartWidget";
 import './navbar.scss'
 
 const NavBar =()=>{
-    const {cart,totalItems}= useContext(GlobalContext)
+    const {cart}= useContext(GlobalContext)
     const location = useLocation()
    
     let verification = location.pathname.includes('/item')
    
-    //DOS TIPOS DE VISTA PARA LA NAV DEPENDIENDO DE SI ESTÁ EN VISTA EL DETALLE DEL PRODUCTO
     return (
         <>
         {verification ? 
             <nav className="navbar position-relative  navbar-expand-lg navDetail">
+
                 <LogoSite/>
+
                 <button className="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-grid-fill" viewBox="0 0 16 16">
@@ -38,17 +38,18 @@ const NavBar =()=>{
                             <NavLink className="nav-link" to='/'>Ofertas</NavLink>
                         </li>
                         {cart.length >0 &&
-                        <li className="nav-item d-flex cartDetail">
-                            <span className='text-center'>{totalItems()}</span>
-                            <Link className="text-decoration-none" to="/cart"><img src={Cart} /></Link>
-                        </li>
+
+                            <CartWidget/>
+
                         }
                     </ul>
                 </div>
             </nav>
         :
             <nav className="navbar navbar-expand-lg ">
+
                 <LogoSite/>
+
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-grid-fill" viewBox="0 0 16 16">
@@ -56,7 +57,9 @@ const NavBar =()=>{
                         </svg>
                     </span>
                 </button>
+
                     <SearchBar/>
+
                 <div className="collapse navbar-collapse navbarContainer" id="navbarTogglerDemo02">
                     <ul className="navbar-nav mr-auto listNavContainer">
                         <li className="nav-item active">
@@ -69,10 +72,9 @@ const NavBar =()=>{
                             <NavLink className="nav-link" to='/'>Ofertas</NavLink>
                         </li>
                         {cart.length >0 &&
-                        <li className="nav-item d-flex cart">
-                            <span className='text-center'>{totalItems()}</span>
-                            <Link className="text-decoration-none" to="/cart"><img src={Cart}/></Link>
-                        </li>
+
+                            <CartWidget/>
+
                         }
                     </ul>
                 </div>

@@ -7,17 +7,20 @@ import { Carousel } from './carousel/Carousel'
 
 
 const ItemDetail = ({item}) => {
-	const {isInCart}= useContext(GlobalContext)
-	let {img} = item
+	const {isInCart}= useContext(GlobalContext);
+	let {img} = item;
+
   return (
     <div className='containerItemDetail container-fluid'>   
         <div className='containerDetail'>
             <div className="containerDetailFather row">
 	            <div className="productContainer col-12 col-sm-12">
 	            	<div className="mediaProductContainer">
+
 						<Carousel 
 						productImgs={img}
 						/>
+
 	            	</div>
 					<div className='detailProductContainer'>
 						<div className="productName">
@@ -37,19 +40,23 @@ const ItemDetail = ({item}) => {
 						<div className='productCart'>
 							{
 								isInCart(item.id)  ?  (
+
 									<div className='d-flex flex-column align-items-center finishBuying'>
 										<p>En tu carrito <span>✔</span></p>
 										<Link to='/cart' className='btn btn-success w-50'>Terminar compra</Link>
 									</div>
+
 									)
 									:
 									(
+
 									<div className='w-100'>
 										<ItemCount
 										stock={item.stock}
 										item={item}
 										/>
 									</div>
+
 								)
 							}
 						</div>

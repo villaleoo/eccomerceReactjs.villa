@@ -9,25 +9,18 @@ export const ItemCount = ({stock, item}) => {
     
     const {addToCart,isInCart} =useContext(GlobalContext)
    
-
     const restar=()=>{
         if(q > 1){
             setQ(q-1)
             
         }
     }                                                                          
-
     const sumar=()=>{
         if(stock != q){               
             setQ(q+1)
         }
     }
    
- 
-    
-
- 
-    
   
   return (
     <div className='my-4 ' id="itemCount">  
@@ -36,7 +29,6 @@ export const ItemCount = ({stock, item}) => {
                 <div>
                     
                     <h5 className='px-2'>Unidades: {item.quantity}</h5>
-                    
                     
                 </div>
                 :

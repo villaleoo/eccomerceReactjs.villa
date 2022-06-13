@@ -20,15 +20,18 @@ export const Carousel = ({productImgs}) => {
               {
                   productImgs[0] && 
                   <div className='carousel-item  active'>
-                      <img className='d-block' src={productImgs[0]} alt="" />
+                      <img className='d-block' src={productImgs[0]} alt="products" />
                   </div>
                 }
                 {
+
                 imgsCarousel.map((item,index)=>
                 <div key={index} className='carousel-item '>
                   <img className='  d-block ' key={index} src={item}/>
                 </div>
-                )}
+                )
+                
+                }
             </div>
         </div>
     </>

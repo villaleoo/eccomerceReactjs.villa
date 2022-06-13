@@ -19,6 +19,7 @@ export const ItemListContainer = () => {
         fetchGetProducts()
         
     },[])
+    
     let filterProducts= productsCollection.filter(item=> item.mark == params.id || item.productType == params.id || (item.price >= params.min & item.price <= params.max) || item.sport === params.id)
   
   return (

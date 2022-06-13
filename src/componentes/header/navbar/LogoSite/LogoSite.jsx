@@ -4,8 +4,6 @@ import {Link} from 'react-router-dom'
 import './logoSite.scss'
 
 export const LogoSite = () => {
-  
-   
 
   return (
     <div className="w-25 d-flex justify-content-center logoContainer">
