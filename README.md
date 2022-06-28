@@ -1,4 +1,7 @@
 		///NAVEGACION ENTRE COMPONENTES///
+
+DEPLOY= https://62bb28d4467ee5005e09f60c--sunny-sawine-6aee78.netlify.app/
+
 SRC
 (COMPONENTES)
 
